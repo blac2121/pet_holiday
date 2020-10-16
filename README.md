@@ -11,6 +11,9 @@ Pet Holiday allows pet sitters to add family detail, contact information, and pe
 ```
 
 ```
+## ERD
+
+[ERD](https://jmp.sh/G1zpAjr)
 
 ## Component Hierarchy
 
