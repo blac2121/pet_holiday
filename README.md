@@ -13,7 +13,7 @@ Pet Holiday allows pet sitters to add family detail, contact information, and pe
 ```
 ## ERD
 
-[ERD](https://jmp.sh/G1zpAjr)
+[ERD](https://drive.google.com/file/d/1lNN6qXNyKothbvrgjVrdAwklXBNnDnzt/view?usp=sharing)
 
 ## Component Hierarchy
 
@@ -25,7 +25,7 @@ Pet Holiday allows pet sitters to add family detail, contact information, and pe
 [Prototype](https://whimsical.com/6Yeu7U4vyBkJfbzkBu6zbu)
 
 
-### MVP/PostMVP  
+### MVP / Post MVP  
 
 #### MVP 
 
@@ -33,8 +33,10 @@ Pet Holiday allows pet sitters to add family detail, contact information, and pe
 - Render produchouseholds amd pets info
 - Full CRUD for pet info
 
-#### PostMVP  
+#### Post MVP  
 
+- Households Search
+- User Auth
 - Animations 
 
 
