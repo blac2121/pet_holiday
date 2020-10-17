@@ -6,11 +6,6 @@
 
 Pet Holiday allows pet sitters to add family detail, contact information, and pet information about the families they pet sit for! 
 
-## API and Data Sample
-
-```
-
-```
 ## ERD
 
 [ERD](https://drive.google.com/file/d/1lNN6qXNyKothbvrgjVrdAwklXBNnDnzt/view?usp=sharing)
