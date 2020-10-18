@@ -1,10 +1,3 @@
-#### Post MVP  
-
-- Households Search
-- User Auth
-- Animations 
-
-
 # Pet Holiday
 
 - [Overview](#overview)
@@ -140,7 +133,9 @@ src
 
 ## Post-MVP
 
-> Use this section to document ideas you've had that would be fun (or necessary) for your Post-MVP. This will be helpful when you return to your project after graduation!
+- Households Search
+- User Auth
+- A way for homeowners to upkeep their own profiles
 
 ***
 
