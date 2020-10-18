@@ -46,11 +46,12 @@ _Pet sitter users accessing the **Pet Holiday** will be able to add, view, updat
 
 |     Library      | Description                                |
 | :--------------: | :----------------------------------------- |
-|      React       | _Lorem ipsum dolor sit amet, consectetur._ |
-|   React Router   | _Lorem ipsum dolor sit amet, consectetur._ |
-| React SemanticUI | _Lorem ipsum dolor sit amet, consectetur._ |
-|     Express      | _Lorem ipsum dolor sit amet, consectetur._ |
-|  Express Router  | _Lorem ipsum dolor sit amet, consectetur._ |
+|       React       | _A front-end JavaScript library enabling quick component based page rendering._ |
+|       Axios       | _Axios is a HTTP library enabling the sending and accepting HTTP requests and responses._ |
+| React Router Dom  | _Enables component rendering._ |
+| Styled Components | _Library enabling CSS to be done from the component sheet._ |
+|        Rails      | _A model-view-controller frameowrk utilizing Ruby._ |
+
 
 <br>
 
