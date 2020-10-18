@@ -67,9 +67,9 @@ _Pet sitter users accessing the **Pet Holiday** will be able to add, view, updat
 
 [Edit Examples](https://jmp.sh/J4qRxJa)
 
-[Tablet](url)
+[Tablet](https://jmp.sh/C0s5fv3)
 
-[Mobile](url)
+[Mobile](https://jmp.sh/9KcQTjF)
 
 
 #### Component Tree
@@ -100,7 +100,6 @@ src
       |__ PetForm.jsx    
     |__ familydetails
       |__ FamilyCard.jsx
-      |__ FamilyAdd.jsx
       |__ FamilyEdit.jsx
       |__ FamilyForm.jsx
     |__ contacts
