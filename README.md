@@ -81,17 +81,34 @@ _Pet sitter users accessing the **Pet Holiday** will be able to add, view, updat
 ``` structure
 src
 |__ components/
-  |__ Home.jsx
-  |__ Household.jsx
-    |__ Pet.jsx
-    |__ FamilyDetail.jsx
-    |__ Contact.jsx
-|__ shared/
-  |__ Layout.jsx
-    |__ Nav.jsx
-    |__ Footer.jsx
+  |__ SubmitButton.jsx 
+  |__ DeleteConfirmation.jsx 
+  |__ shared/
+    |__ Layout.jsx
+      |__ Nav.jsx
+      |__ Footer.jsx  
+|__ screens/
+  |__ home
+    |__ Home.jsx
+    |__ HouseholdAddForm.jsx 
+  |__ householddashboard       
+    |__ HouseholdDashboard.jsx
+    |__ pets
+      |__ PetCard.jsx
+      |__ PetAdd.jsx
+      |__ PetEdit.jsx
+      |__ PetForm.jsx    
+    |__ familydetails
+      |__ FamilyCard.jsx
+      |__ FamilyAdd.jsx
+      |__ FamilyEdit.jsx
+      |__ FamilyForm.jsx
+    |__ contacts
+      |__ ContactCard.jsx
+      |__ ContactAdd.jsx
+      |__ ContactEdit.jsx
+      |__ ContactForm.jsx
 |__ services/
-
 ```
 
 #### Component Breakdown
