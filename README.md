@@ -7,10 +7,6 @@
 [Whimsical](https://whimsical.com/PYe9UkqdjjZzLQxWnuvBDA)
 
 
-## Wireframes
-
-[Prototype](https://whimsical.com/6Yeu7U4vyBkJfbzkBu6zbu)
-
 
 #### Post MVP  
 
@@ -89,18 +85,14 @@ _Pet sitter users accessing the **Pet Holiday** will be able to add, view, updat
 
 [Edit Examples](https://jmp.sh/J4qRxJa)
 
+[Tablet](url)
 
-![Dummy Link](url)
+[Mobile](url)
 
-- Tablet Resource Index
-
-![Dummy Link](url)
-
-- Mobile Resource Index
 
 #### Component Tree
 
-> Use this section to display the structure of how your React components are being rendered. This should show the parent to child relation between you components. In other words, show which components are rendering the other components. 
+[Whimsical Component Tree](https://whimsical.com/PYe9UkqdjjZzLQxWnuvBDA)
 
 #### Component Hierarchy
 
