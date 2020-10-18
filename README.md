@@ -91,10 +91,7 @@ _Pet sitter users accessing the **Pet Holiday** will be able to add, view, updat
 
 #### Component Hierarchy
 
-> Use this section to define your React components and the data architecture of your app. This should be a reflection of how you expect your directory/file tree to look like. 
-
 ``` structure
-
 src
 |__ components/
   |__ Home.jsx
