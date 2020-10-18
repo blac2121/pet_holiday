@@ -90,6 +90,7 @@ src
 |__ screens/
   |__ home
     |__ Home.jsx
+      |__ HuseholdCard.jsx
     |__ HouseholdAddForm.jsx 
   |__ householddashboard       
     |__ HouseholdDashboard.jsx
@@ -112,22 +113,25 @@ src
 
 #### Component Breakdown
 
-> Use this section to go into further depth regarding your components, including breaking down the components as stateless or stateful, and considering the passing of data between those components.
-
 |  Component   |    Type    | state | props | Description                                                      |
 | :----------: | :--------: | :---: | :---: | :--------------------------------------------------------------- |
-|  Navigation  | functional |   n   |   n   | _The navigation will provide a link to Hoome through the logo._       |
-|    Layout    | functional |   n   |   n   | _The Layout will be the placeholder to render the main pages._               |
-|      Home    | functional |   n   |   y   | _List of all households._                 |
-|   Household  | functional |   n   |   n   | _Household dashboard holding Pet, Contact, and Famil Details._ |
-|    PetCard   | functional |   n   |   n   | _Pet card to hold render the pet details._ |
-|    PetAdd   | functional |   n   |   n   | _Pet card to hold render the pet details._ |
-|    PetEdit   | functional |   n   |   n   | _Pet card to hold render the pet details._ |
-|    PetForm  | functional |   n   |   n   | _Pet card to hold render the pet details._ |
-|    PetAdd  | functional |   n   |   n   | _Pet card to hold render the pet details._ |
-|  ContactCard | functional |   n   |   n   | _Contact card to hold render the Contact details._ |
-| FamilyDetailCard | functional |   n   |   n   | _FamilyDetail card to hold render the FamilyDetail details._ |
-|     Footer   | functional |   y   |   n   | _The footer will contain attributions._      |
+|  Navigation  | functional |   n   |   n   | _The navigation will provide a link to Home through the logo._ |
+|    Layout    | functional |   n   |   y   | _The Layout will be the placeholder to render the main pages._ |
+|      Home    | functional |   n   |   y   | _List of all households._ |
+|HouseholdCard | functional |   y   |   y   | _Household card to hold render the household details as well as delete the household record._ |
+|   Household  | functional |   y   |   n   | _Household dashboard holding Pet, Contact, and Famil Details._ |
+|    PetCard   | functional |   y   |   y   | _Pet card to hold render the pet details as well as delete the pet record._ |
+|    PetAdd    | functional |   y   |   n   | _Add takes the form and submit button as well as sends values to database._ |
+|    PetEdit   | functional |   y   |   y   | _Edit takes the form and submit button as well as sends updated vaulues to database._ |
+|    PetForm   | functional |   y   |   y   | _Form to style and create inputs for add and edit._ |
+|  ContactCard | functional |   y   |   y   | _Contact card to hold render the Contact details as well as delete the contact._ |
+|  ContactAdd  | functional |   y   |   n   | _Add takes the form and submit button as well as sends values to database._ |
+|  ContactEdit | functional |   y   |   y   | _Edit takes the form and submit button as well as sends updated vaulues to database._ |
+|  ContactForm | functional |   y   |   y   | _Form to style and create inputs for add and edit._ |
+|  FamilyCard  | functional |   y   |   y   | _FamilyDetail card to hold render the FamilyDetail details as well as delete the whole household._ |
+|  FamilyEdit  | functional |   y   |   y   | _Edit has form and takes the submit button as well as sends updated vaulues to database._ |
+| SubmitButton | functional |   n   |   y   | _Styled button to be used on add and edit components._ |
+|     Footer   | functional |   n   |   n   | _The footer will contain attributions._      |
 
 #### Time Estimates
 
@@ -135,11 +139,17 @@ src
 
 | Task                | Priority | Estimated Time | Time Invested | Actual Time |
 | ------------------- | :------: | :------------: | :-----------: | :---------: |
-| Add Contact Form    |    L     |     3 hrs      |     2 hrs     |    3 hrs    |
-| Create CRUD Actions |    H     |     3 hrs      |     1 hrs     |     TBD     |
-| TOTAL               |          |     6 hrs      |     3 hrs     |     TBD     |
+| Set Up Backend      |    H     |     8 hrs      |     TBD       |     TBD     |
+| Set Up Frontend     |    H     |     8 hrs      |     TBD     |    TBD     |
+| Nav Footer Layout   |    H     |     3 hrs      |     TBD     |     TBD    | 
+| Mobile              |    H     |     8 hrs      |     TBD     |     TBD     |
+| Household CRUD      |    H     |     6 hrs      |     TBD     |     TBD     |
+| Pet CRUD            |    H     |     6 hrs      |     TBD     |     TBD     |
+| Contact CRUD        |    H     |     6 hrs      |     TBD     |     TBD     |
+| Submit Button       |    H     |     1 hr       |     TBD     |     TBD     |
+| Delete Modal        |    L     |     1 hr       |     TBD     |     TBD     |
+| TOTAL               |          |     47 hrs     |     TBD     |     TBD     |
 
-> _Why is this necessary? Time frames are key to the development cycle. You have limited time to code your app, and your estimates can then be used to evaluate possibilities of your MVP and post-MVP based on time needed. It's best you assume an additional hour for each component, as well as a few hours added to the total time, to play it safe._
 
 <br>
 
@@ -168,8 +178,3 @@ src
 ## Code Issues & Resolutions
 
 > Use this section to list of all major issues encountered and their resolution.
-
-
-
-
-
