@@ -42,8 +42,6 @@ _Pet sitter users accessing the **Pet Holiday** will be able to add, view, updat
 
 ### Libraries and Dependencies
 
-> Use this section to list all supporting libraries and dependencies, and their role in the project. Below is an example - this needs to be replaced!
-
 |     Library      | Description                                |
 | :--------------: | :----------------------------------------- |
 |       React       | _A front-end JavaScript library enabling quick component based page rendering._ |
@@ -102,11 +100,18 @@ src
 
 |  Component   |    Type    | state | props | Description                                                      |
 | :----------: | :--------: | :---: | :---: | :--------------------------------------------------------------- |
-|    Header    | functional |   n   |   n   | _The header will contain the navigation and logo._               |
-|  Navigation  | functional |   n   |   n   | _The navigation will provide a link to each of the pages._       |
-|   Gallery    |   class    |   y   |   n   | _The gallery will render the posts using cards in flexbox._      |
-| Gallery Card | functional |   n   |   y   | _The cards will render the post info via props._                 |
-|    Footer    | functional |   n   |   n   | _The footer will show info about me and a link to my portfolio._ |
+|  Navigation  | functional |   n   |   n   | _The navigation will provide a link to Hoome through the logo._       |
+|    Layout    | functional |   n   |   n   | _The Layout will be the placeholder to render the main pages._               |
+|      Home    | functional |   n   |   y   | _List of all households._                 |
+|   Household  | functional |   n   |   n   | _Household dashboard holding Pet, Contact, and Famil Details._ |
+|    PetCard   | functional |   n   |   n   | _Pet card to hold render the pet details._ |
+|    PetAdd   | functional |   n   |   n   | _Pet card to hold render the pet details._ |
+|    PetEdit   | functional |   n   |   n   | _Pet card to hold render the pet details._ |
+|    PetForm  | functional |   n   |   n   | _Pet card to hold render the pet details._ |
+|    PetAdd  | functional |   n   |   n   | _Pet card to hold render the pet details._ |
+|  ContactCard | functional |   n   |   n   | _Contact card to hold render the Contact details._ |
+| FamilyDetailCard | functional |   n   |   n   | _FamilyDetail card to hold render the FamilyDetail details._ |
+|     Footer   | functional |   y   |   n   | _The footer will contain attributions._      |
 
 #### Time Estimates
 
