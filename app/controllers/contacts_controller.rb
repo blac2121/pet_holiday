@@ -2,9 +2,9 @@ class ContactsController < ApplicationController
 
   def index
     @household = Household.find(params[:@household_id]) 
-    @contacts = Contact.where(@household_id: @household.id) 
+    @contacts = Contact.where(household_id: @household.id) 
 
-    render json: @contacts, include: :@household_id, status: :ok
+    render json: @contacts, include: :@household, status: :ok
   end
 
   def show
@@ -16,7 +16,7 @@ class ContactsController < ApplicationController
 
     if @contact.save
       #is this the right contact or os the the contact with ID
-      render json: @contact, status: :created, location: @household_id
+      render json: @contact, status: :created, location: @household
     else
       render json: @contact.errors, status: :unprocessable_entity
     end
@@ -40,7 +40,7 @@ class ContactsController < ApplicationController
   end
 
   def contact_params
-    params.require(:contact).permit(:name)
+    params.require(:contact).permit(:name, :img, :relationship, :phone_num, :notes, :household_id)
   end
 
 end
