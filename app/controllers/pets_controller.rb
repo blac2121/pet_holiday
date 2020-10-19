@@ -1,10 +1,10 @@
 class PetsController < ApplicationController
 
   def index
-    @household = Household.find(params[:@household_id]) 
-    @pets = Pet.where(@household_id: @household.id) 
+    @household = Household.find(params[:household_id]) 
+    @pets = Pet.where(household_id: @household.id) 
 
-    render json: @pets, include: :@household_id, status: :ok
+    render json: @pets, include: :@household, status: :ok
   end
 
   def show
@@ -16,7 +16,7 @@ class PetsController < ApplicationController
 
     if @pet.save
       #is this the right contact or os the the contact with ID
-      render json: @pet, status: :created, location: @household_id
+      render json: @pet, status: :created, location: @household
     else
       render json: @pet.errors, status: :unprocessable_entity
     end
@@ -40,7 +40,7 @@ class PetsController < ApplicationController
   end
 
   def pet_params
-    params.require(:pet).permit(:name)
+    params.require(:pet).permit(:name, :img, :age, :medical_description, :feeding_description, :notes, :household_id  )
   end
 
 end

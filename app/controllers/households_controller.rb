@@ -1,4 +1,5 @@
 class HouseholdsController < ApplicationController
+  before_action :set_household, only: [:show, :update, :destroy]
 
   def index
     @households = Household.all 
@@ -7,7 +8,7 @@ class HouseholdsController < ApplicationController
   end
 
   def show
-    render json: @household, include: [:pets :contacts]
+    render json: @household, include: [:pets, :contacts]
   end
 
   def create
@@ -38,7 +39,7 @@ class HouseholdsController < ApplicationController
   end
 
   def household_params
-    params.require(:household).permit(:name)
+    params.require(:household).permit(:name, :street, :city, :state, :zip_code, :wifi_username, :wifi_password, :temp_low, :temp_high, :notes)
   end
 
 end
