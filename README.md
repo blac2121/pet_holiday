@@ -1,20 +1,3 @@
-## ERD
-
-[ERD](https://drive.google.com/file/d/1lNN6qXNyKothbvrgjVrdAwklXBNnDnzt/view?usp=sharing)
-
-## Component Hierarchy
-
-[Whimsical](https://whimsical.com/PYe9UkqdjjZzLQxWnuvBDA)
-
-
-
-#### Post MVP  
-
-- Households Search
-- User Auth
-- Animations 
-
-
 # Pet Holiday
 
 - [Overview](#overview)
@@ -59,15 +42,14 @@ _Pet sitter users accessing the **Pet Holiday** will be able to add, view, updat
 
 ### Libraries and Dependencies
 
-> Use this section to list all supporting libraries and dependencies, and their role in the project. Below is an example - this needs to be replaced!
-
 |     Library      | Description                                |
 | :--------------: | :----------------------------------------- |
-|      React       | _Lorem ipsum dolor sit amet, consectetur._ |
-|   React Router   | _Lorem ipsum dolor sit amet, consectetur._ |
-| React SemanticUI | _Lorem ipsum dolor sit amet, consectetur._ |
-|     Express      | _Lorem ipsum dolor sit amet, consectetur._ |
-|  Express Router  | _Lorem ipsum dolor sit amet, consectetur._ |
+|       React       | _A front-end JavaScript library enabling quick component based page rendering._ |
+|       Axios       | _Axios is a HTTP library enabling the sending and accepting HTTP requests and responses._ |
+| React Router Dom  | _Enables component rendering._ |
+| Styled Components | _Library enabling CSS to be done from the component sheet._ |
+|        Rails      | _A model-view-controller frameowrk utilizing Ruby._ |
+
 
 <br>
 
@@ -85,9 +67,9 @@ _Pet sitter users accessing the **Pet Holiday** will be able to add, view, updat
 
 [Edit Examples](https://jmp.sh/J4qRxJa)
 
-[Tablet](url)
+[Tablet](https://jmp.sh/C0s5fv3)
 
-[Mobile](url)
+[Mobile](https://jmp.sh/9KcQTjF)
 
 
 #### Component Tree
@@ -96,45 +78,77 @@ _Pet sitter users accessing the **Pet Holiday** will be able to add, view, updat
 
 #### Component Hierarchy
 
-> Use this section to define your React components and the data architecture of your app. This should be a reflection of how you expect your directory/file tree to look like. 
-
 ``` structure
-
 src
-|__ assets/
-      |__ fonts
-      |__ graphics
-      |__ images
-      |__ mockups
 |__ components/
-      |__ Header.jsx
+  |__ SubmitButton.jsx 
+  |__ DeleteConfirmation.jsx 
+  |__ shared/
+    |__ Layout.jsx
+      |__ Nav.jsx
+      |__ Footer.jsx  
+|__ screens/
+  |__ home
+    |__ Home.jsx
+      |__ HuseholdCard.jsx
+    |__ HouseholdAddForm.jsx 
+  |__ householddashboard       
+    |__ HouseholdDashboard.jsx
+    |__ pets
+      |__ PetCard.jsx
+      |__ PetAdd.jsx
+      |__ PetEdit.jsx
+      |__ PetForm.jsx    
+    |__ familydetails
+      |__ FamilyCard.jsx
+      |__ FamilyEdit.jsx
+      |__ FamilyForm.jsx
+    |__ contacts
+      |__ ContactCard.jsx
+      |__ ContactAdd.jsx
+      |__ ContactEdit.jsx
+      |__ ContactForm.jsx
 |__ services/
-
 ```
 
 #### Component Breakdown
 
-> Use this section to go into further depth regarding your components, including breaking down the components as stateless or stateful, and considering the passing of data between those components.
-
 |  Component   |    Type    | state | props | Description                                                      |
 | :----------: | :--------: | :---: | :---: | :--------------------------------------------------------------- |
-|    Header    | functional |   n   |   n   | _The header will contain the navigation and logo._               |
-|  Navigation  | functional |   n   |   n   | _The navigation will provide a link to each of the pages._       |
-|   Gallery    |   class    |   y   |   n   | _The gallery will render the posts using cards in flexbox._      |
-| Gallery Card | functional |   n   |   y   | _The cards will render the post info via props._                 |
-|    Footer    | functional |   n   |   n   | _The footer will show info about me and a link to my portfolio._ |
+|  Navigation  | functional |   n   |   n   | _The navigation will provide a link to Home through the logo._ |
+|    Layout    | functional |   n   |   y   | _The Layout will be the placeholder to render the main pages._ |
+|      Home    | functional |   n   |   y   | _List of all households._ |
+|HouseholdCard | functional |   y   |   y   | _Household card to hold render the household details as well as delete the household record._ |
+|   Household  | functional |   y   |   n   | _Household dashboard holding Pet, Contact, and Famil Details._ |
+|    PetCard   | functional |   y   |   y   | _Pet card to hold render the pet details as well as delete the pet record._ |
+|    PetAdd    | functional |   y   |   n   | _Add takes the form and submit button as well as sends values to database._ |
+|    PetEdit   | functional |   y   |   y   | _Edit takes the form and submit button as well as sends updated vaulues to database._ |
+|    PetForm   | functional |   y   |   y   | _Form to style and create inputs for add and edit._ |
+|  ContactCard | functional |   y   |   y   | _Contact card to hold render the Contact details as well as delete the contact._ |
+|  ContactAdd  | functional |   y   |   n   | _Add takes the form and submit button as well as sends values to database._ |
+|  ContactEdit | functional |   y   |   y   | _Edit takes the form and submit button as well as sends updated vaulues to database._ |
+|  ContactForm | functional |   y   |   y   | _Form to style and create inputs for add and edit._ |
+|  FamilyCard  | functional |   y   |   y   | _FamilyDetail card to hold render the FamilyDetail details as well as delete the whole household._ |
+|  FamilyEdit  | functional |   y   |   y   | _Edit has form and takes the submit button as well as sends updated vaulues to database._ |
+| SubmitButton | functional |   n   |   y   | _Styled button to be used on add and edit components._ |
+|     Footer   | functional |   n   |   n   | _The footer will contain attributions._      |
 
 #### Time Estimates
 
-> Use this section to estimate the time necessary to build out each of the components you've described above.
 
 | Task                | Priority | Estimated Time | Time Invested | Actual Time |
 | ------------------- | :------: | :------------: | :-----------: | :---------: |
-| Add Contact Form    |    L     |     3 hrs      |     2 hrs     |    3 hrs    |
-| Create CRUD Actions |    H     |     3 hrs      |     1 hrs     |     TBD     |
-| TOTAL               |          |     6 hrs      |     3 hrs     |     TBD     |
+| Set Up Backend      |    H     |     8 hrs      |     TBD       |     TBD     |
+| Set Up Frontend     |    H     |     8 hrs      |     TBD     |    TBD     |
+| Nav Footer Layout   |    H     |     3 hrs      |     TBD     |     TBD    | 
+| Mobile              |    H     |     8 hrs      |     TBD     |     TBD     |
+| Household CRUD      |    H     |     6 hrs      |     TBD     |     TBD     |
+| Pet CRUD            |    H     |     6 hrs      |     TBD     |     TBD     |
+| Contact CRUD        |    H     |     6 hrs      |     TBD     |     TBD     |
+| Submit Button       |    H     |     1 hr       |     TBD     |     TBD     |
+| Delete Modal        |    L     |     1 hr       |     TBD     |     TBD     |
+| TOTAL               |          |     47 hrs     |     TBD     |     TBD     |
 
-> _Why is this necessary? Time frames are key to the development cycle. You have limited time to code your app, and your estimates can then be used to evaluate possibilities of your MVP and post-MVP based on time needed. It's best you assume an additional hour for each component, as well as a few hours added to the total time, to play it safe._
 
 <br>
 
@@ -142,7 +156,7 @@ src
 
 #### ERD Model
 
-> Use this section to display an image of a computer generated ERD model. You can use draw.io, Lucidchart or another ERD tool.
+[ERD](https://drive.google.com/file/d/1lNN6qXNyKothbvrgjVrdAwklXBNnDnzt/view?usp=sharing)
 
 <br>
 
@@ -150,7 +164,9 @@ src
 
 ## Post-MVP
 
-> Use this section to document ideas you've had that would be fun (or necessary) for your Post-MVP. This will be helpful when you return to your project after graduation!
+- Households Search
+- User Auth
+- A way for homeowners to upkeep their own profiles
 
 ***
 
@@ -161,8 +177,3 @@ src
 ## Code Issues & Resolutions
 
 > Use this section to list of all major issues encountered and their resolution.
-
-
-
-
-
