@@ -14,9 +14,12 @@ const HouseholdList = (props) => {
 
  
   return (
+    // line 18 will be layout
     <div>
-      <h1>hello</h1>
-      {HouseholdCardJSX}
+      <h3>Households</h3>
+      <div>
+        {HouseholdCardJSX}
+      </div>
     </div>
   );
 }
