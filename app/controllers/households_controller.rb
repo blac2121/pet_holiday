@@ -21,16 +21,15 @@ class HouseholdsController < ApplicationController
   end
 
   def update
-    @dojo = Dojo.find(params[:id])
-    @dojo.update(params)
-
-    render json: @dojo
+    if @household.update(household_params)
+      render json: @household
+    else
+      render json: @household.errors, status: :unprocessable_entity
+    end
   end
 
   def destroy
-    @dojo = Dojo.find(params[:id])
-
-    @dojo.destroy
+    @household.destroy
   end
 
   private
