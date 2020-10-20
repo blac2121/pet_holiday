@@ -18,6 +18,8 @@ const Household = () => {
     fetchHousehold();
   }, [id])
 
+  console.log(household);
+
   // const petCardJSX = household.map((pet, index) => (
   //   <PetCard
   //     key={index}
@@ -45,7 +47,16 @@ const Household = () => {
       <div>
         <FamilyDetailCard
           id={household.id}
-          name={household.name}      
+          name={household.name} 
+          street={household.street}
+          city={household.city}
+          state={household.state}
+          zipCode={household.zip_code}
+          tempLow={household.temp_low}
+          tempHi={household.temp_high}
+          wifiUsername={household.wifi_password}
+          wifiPassword={household.wifi_username}
+          notes={household.notes}
         />
       </div>
     </div>
