@@ -1,6 +1,7 @@
 import React, { useEffect, useState } from 'react';
 import { useParams } from 'react-router-dom';
-import { getOneHousehold  } from '../../services/households';
+import { getOneHousehold } from '../../services/households';
+import Layout from '../../components/shared/Layout';
 import PetCard from './pets/PetCard';
 import FamilyDetailCard from './familydetails/FamilyDetailCard';
 
@@ -39,7 +40,7 @@ const Household = () => {
 
  
   return (
-    <div>
+    <Layout>
       <h3>Household</h3>
       {/* <div>
         {petCardJSX}
@@ -59,7 +60,7 @@ const Household = () => {
           notes={household.notes}
         />
       </div>
-    </div>
+    </Layout>
   );
 }
 

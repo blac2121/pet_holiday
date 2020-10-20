@@ -1,4 +1,5 @@
 import React from 'react';
+import Layout from '../../components/shared/Layout';
 import HouseholdCard from './HouseholdCard';
 
 
@@ -14,13 +15,12 @@ const HouseholdList = (props) => {
 
  
   return (
-    // line 18 will be layout
-    <div>
+    <Layout>
       <h3>Households</h3>
       <div>
         {HouseholdCardJSX}
       </div>
-    </div>
+    </Layout>
   );
 }
 
