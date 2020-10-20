@@ -21,7 +21,11 @@ const HouseholdList = (props) => {
     <HouseholdCard
       key={index}
       id={household.id}
-      name={household.name}      
+      name={household.name} 
+      street={household.street}
+      city={household.city}
+      state={household.state}
+      zipCode={household.zip_code}
     />
   ));
 
