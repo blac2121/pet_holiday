@@ -8,7 +8,7 @@ const PetContainer = styled.div`
   margin: 40px;
   padding: 15px 25px;
   // box-shadow: 0 20px 25px -5px rgba(72, 128, 71, 0.4);
-  box-shadow: 0 10px 25px -5px rgba(72, 128, 71, 0.4);
+  box-shadow: 0 20px 25px -5px rgba(0, 0, 0, 0.3);
 `
 
 const PetCard = (props) => {  

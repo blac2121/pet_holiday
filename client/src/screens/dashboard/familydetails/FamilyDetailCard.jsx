@@ -6,17 +6,14 @@ const FamilyDetailContainer = styled.div`
   border-radius: 3px;
   margin: 30px;
   padding: 15px 25px;
-  box-shadow: 0 10px 25px -5px rgba(35, 48, 158, 0.4);
+  // box-shadow: 0 10px 25px -5px rgba(35, 48, 158, 0.4);
+  box-shadow: 0 20px 25px -5px rgba(0, 0, 0, 0.3);
 `
 
 const FamilyDetailCard = (props) => {  
   return (
     <FamilyDetailContainer>
       <h3>{props.name}</h3>
-      {/* <p>{props.street}</p>
-      <p>{props.city}</p>
-      <p>{props.state}</p>
-      <p>{props.zipCode}</p> */}
       <p>{props.street} {props.city}, {props.state} {props.zipCode} </p>
       <p>{props.tempLow}</p>
       <p>{props.tempHi}</p>
