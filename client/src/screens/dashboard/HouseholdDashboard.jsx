@@ -6,17 +6,17 @@ import FamilyDetailCard from './familydetails/FamilyDetailCard';
 
 
 const Household = () => {
-  // const [household, setHousehold] = useState([]);
+  const [household, setHousehold] = useState([]);
 
-  // const { id } = useParams(); 
+  const { id } = useParams(); 
 
-  // useEffect(() => {
-  //   const fetchHousehold = async () => {
-  //     const householdData = await getOneHousehold(id);
-  //     setHousehold(householdData);
-  //   }
-  //   fetchHousehold();
-  // }, [id])
+  useEffect(() => {
+    const fetchHousehold = async () => {
+      const householdData = await getOneHousehold(id);
+      setHousehold(householdData);
+    }
+    fetchHousehold();
+  }, [id])
 
   // const petCardJSX = household.map((pet, index) => (
   //   <PetCard
@@ -26,13 +26,6 @@ const Household = () => {
   //   />
   // ));
 
-  // const familyDetailCardJSX = household.map((familycard, index) => (
-  //   <FamilyDetailCard
-  //     key={index}
-  //     id={familycard.id}
-  //     name={familycard.name}      
-  //   />
-  // ));
 
   // const contactCardJSX = props.households.map((household, index) => (
   //   <HouseholdCard
@@ -48,10 +41,13 @@ const Household = () => {
       <h3>Household</h3>
       {/* <div>
         {petCardJSX}
-      </div>
-      <div>
-        {familyDetailCardJSX}
       </div> */}
+      <div>
+        <FamilyDetailCard
+          id={household.id}
+          name={household.name}      
+        />
+      </div>
     </div>
   );
 }
