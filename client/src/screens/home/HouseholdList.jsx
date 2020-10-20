@@ -1,6 +1,18 @@
 import React from 'react';
 import Layout from '../../components/shared/Layout';
 import HouseholdCard from './HouseholdCard';
+import styled from 'styled-components';
+
+
+const HouseholdContainer = styled.div`
+  display: flex;
+  flex-direction: column;
+`
+
+const HouseholdTitle = styled.h3`
+  color: #DAAB5E;
+  font-size: 36px;
+`
 
 
 const HouseholdList = (props) => {
@@ -15,10 +27,10 @@ const HouseholdList = (props) => {
 
   return (
     <Layout>
-      <h3>Households</h3>
-      <div>
+      <HouseholdTitle>Households</HouseholdTitle>
+      <HouseholdContainer>
         {HouseholdCardJSX}
-      </div>
+      </HouseholdContainer>
     </Layout>
   );
 }
