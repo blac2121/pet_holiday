@@ -9,7 +9,6 @@ import ContactCard from './contacts/ContactCard';
 
 const Household = () => {
   const [household, setHousehold] = useState([]);
-  
   const { id } = useParams(); 
 
   useEffect(() => {
@@ -20,11 +19,7 @@ const Household = () => {
     fetchHousehold();
   }, [id])
 
-  console.log(household);
-
-
   const petData = household.pets 
-
   const petCardJSX = petData && petData.map((pet, index) => (
     <PetCard
       key={index}
@@ -38,7 +33,6 @@ const Household = () => {
   ));
 
   const contactData = household.contacts 
-  
   const contactCardJSX = contactData && contactData.map((contact, index) => (
     <ContactCard
       key={index}
@@ -49,7 +43,6 @@ const Household = () => {
       notes={contact.notes} 
     />
   ));
-
 
   return (
     <Layout>

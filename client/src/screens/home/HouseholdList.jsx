@@ -13,7 +13,6 @@ const HouseholdList = (props) => {
     />
   ));
 
- 
   return (
     <Layout>
       <h3>Households</h3>
