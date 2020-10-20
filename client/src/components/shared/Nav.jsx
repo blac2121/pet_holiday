@@ -1,13 +1,24 @@
 import React from 'react';
 import { Link } from 'react-router-dom';
+import styled from 'styled-components';
+
+const MainContainer = styled.div`
+  display: flex;
+`
+
+const Title = styled.h1`
+  color: #DAAB5E;
+  font-size: 48px;
+  margin: 30px 40px 40px;
+`
 
 const Nav = () => {  
   return (
-    <div>
+    <MainContainer>
       <Link to='/'>
-        <h1>Pet Holiday</h1>
+        <Title>Pet Holiday</Title>
       </Link>      
-    </div>
+    </MainContainer>
   );
 };
 

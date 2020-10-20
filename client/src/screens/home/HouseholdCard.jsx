@@ -19,6 +19,7 @@ const HouseholdCard = (props) => {
     <Link to={`/households/${props.id}`}>
       <HouseholdContainer>
         <HouseholdTitle>{props.name}</HouseholdTitle>
+        <p>{props.street} {props.city}, {props.state} {props.zipCode} </p>
       </HouseholdContainer>      
     </Link>  
   );

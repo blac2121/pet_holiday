@@ -7,8 +7,17 @@ import FamilyDetailCard from './familydetails/FamilyDetailCard';
 import ContactCard from './contacts/ContactCard';
 import styled from 'styled-components';
 
+const TitleMainContainer = styled.div`
+  display: flex;
+  flex-direction: column;
+  box-shadow: 0 20px 25px -5px rgba(0, 0, 0, 0.3);
+  border: 1px solid #DFDFDF;
+  margin: 50px;
+`
+
 const MainContainer = styled.div`
   display: flex;
+  margin: 10px 50px 30px;
 `
 
 const Panel = styled.div`
@@ -33,6 +42,7 @@ const FamAndContactContainer = styled.div`
 const HouseholdTitle = styled.h3`
   color: #DAAB5E;
   font-size: 36px;
+  margin: 50px 0px 0px 80px;
 `
 
 const PetTitle = styled.h4`
@@ -91,9 +101,10 @@ const Household = () => {
   ));
 
   return (
-    <Layout>
-      <HouseholdTitle>Household</HouseholdTitle>
-      <MainContainer>
+    <Layout>      
+      <TitleMainContainer>
+        <HouseholdTitle>Household</HouseholdTitle>
+        <MainContainer>
         <PetsContainer>
           <Panel>         
             <div>
@@ -133,6 +144,7 @@ const Household = () => {
           </Panel>        
         </FamAndContactContainer>
       </MainContainer>
+      </TitleMainContainer>
     </Layout>
   );
 }
