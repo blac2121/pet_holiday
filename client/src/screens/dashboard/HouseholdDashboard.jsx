@@ -4,6 +4,7 @@ import { getOneHousehold } from '../../services/households';
 import Layout from '../../components/shared/Layout';
 import PetCard from './pets/PetCard';
 import FamilyDetailCard from './familydetails/FamilyDetailCard';
+import ContactCard from './contacts/ContactCard';
 
 
 const Household = () => {
@@ -23,8 +24,6 @@ const Household = () => {
 
 
   const petData = household.pets 
-  console.log(petData);
-
 
   const petCardJSX = petData && petData.map((pet, index) => (
     <PetCard
@@ -37,16 +36,21 @@ const Household = () => {
       notes={pet.notes}
     />
   ));
-  
-  // const contactCardJSX = props.households.map((household, index) => (
-  //   <HouseholdCard
-  //     key={index}
-  //     id={household.id}
-  //     name={household.name}      
-  //   />
-  // ));
 
- 
+  const contactData = household.contacts 
+  
+  const contactCardJSX = contactData && contactData.map((contact, index) => (
+    <ContactCard
+      key={index}
+      id={contact.id}
+      name={contact.name} 
+      relationship={contact.relationship} 
+      phoneNum={contact.phone_num} 
+      notes={contact.notes} 
+    />
+  ));
+
+
   return (
     <Layout>
       <h3>Household</h3>
@@ -67,6 +71,9 @@ const Household = () => {
           wifiPassword={household.wifi_username}
           notes={household.notes}
         />
+      </div>
+      <div>
+        {contactCardJSX}
       </div>
     </Layout>
   );
