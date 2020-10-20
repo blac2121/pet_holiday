@@ -31,6 +31,10 @@ const Household = () => {
       key={index}
       id={pet.id}
       name={pet.name}
+      age={pet.age}
+      medical={pet.medical_description}
+      feeding={pet.feeding_description}
+      notes={pet.notes}
     />
   ));
   
