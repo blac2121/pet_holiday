@@ -1,11 +1,11 @@
 import React, { useState, useEffect } from 'react';
 import { Route, Switch, useHistory } from 'react-router-dom';
 
-import { getAllHouseholds } from '../services/households';
+import { getAllHouseholds, getOneHousehold  } from '../services/households';
 // import { getAllFoods, postFood, putFood } from '../services/foods';
 
-import HouseholdList from '../services/home/HouseholdList';
-// import Foods from '../screens/Foods';
+import HouseholdList from '../screens/home/HouseholdList';
+import Household from '../screens/dashboard/HouseholdDashboard';
 // import FoodCreate from '../screens/FoodCreate';
 // import FoodEdit from '../screens/FoodEdit';
 // import FoodDetail from '../screens/FoodDetail';
@@ -20,7 +20,7 @@ const MainContainer = () => {
     const fetchHouseholds = async () => {
       const HouseholdsData = await getAllHouseholds();
       setHouseholds(HouseholdsData);
-    }
+    }  
     fetchHouseholds();
   }, [])
 
@@ -40,22 +40,23 @@ const MainContainer = () => {
 
   return (
     <Switch>
-      <Route path='/households'>
-        <HouseholdList households={households} />
+      <Route path='/households/:id'>
+        <Household households={households} />
       </Route>
+      <Route path='/'>
+        <HouseholdList households={households} />
+      </Route>      
       {/* <Route path='/foods/new'>
         <FoodCreate handleFoodCreate={handleFoodCreate} />         
-      </Route>
-      <Route path='/foods/:id/edit'>
+      </Route> */}
+      {/* <Route path='/foods/:id/edit'>
         <FoodEdit
           handleFoodEdit={handleFoodEdit}
           foods={foods}
         />
-      </Route>
-      <Route path='/foods/:id'>
-        <FoodDetail flavors={flavors} />
-      </Route>
-      <Route path='/foods'>
+      </Route> */}
+
+      {/* <Route path='/foods'>
         <Foods
           foods={foods}
         />
