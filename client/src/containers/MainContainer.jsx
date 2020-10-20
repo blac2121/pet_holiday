@@ -24,6 +24,7 @@ const MainContainer = () => {
     fetchHouseholds();
   }, [])
 
+  console.log(households);
   // const handleFoodCreate = async (foodData) => {
   //   const newFood = await postFood(foodData);
   //   setFoods(prevState => ([...prevState, newFood]));

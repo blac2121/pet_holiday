@@ -8,7 +8,7 @@ import FamilyDetailCard from './familydetails/FamilyDetailCard';
 
 const Household = () => {
   const [household, setHousehold] = useState([]);
-
+  
   const { id } = useParams(); 
 
   useEffect(() => {
@@ -21,15 +21,19 @@ const Household = () => {
 
   console.log(household);
 
-  // const petCardJSX = household.map((pet, index) => (
-  //   <PetCard
-  //     key={index}
-  //     id={pet.id}
-  //     name={pet.name}      
-  //   />
-  // ));
+
+  const petData = household.pets 
+  console.log(petData);
 
 
+  const petCardJSX = petData && petData.map((pet, index) => (
+    <PetCard
+      key={index}
+      id={pet.id}
+      name={pet.name}
+    />
+  ));
+  
   // const contactCardJSX = props.households.map((household, index) => (
   //   <HouseholdCard
   //     key={index}
@@ -42,9 +46,9 @@ const Household = () => {
   return (
     <Layout>
       <h3>Household</h3>
-      {/* <div>
+      <div>
         {petCardJSX}
-      </div> */}
+      </div>
       <div>
         <FamilyDetailCard
           id={household.id}
