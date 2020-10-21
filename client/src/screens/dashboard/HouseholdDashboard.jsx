@@ -85,7 +85,6 @@ const Household = (props) => {
     fetchHousehold();
   }, [id])
 
-  console.log(household);
   
   const petData = household.pets 
   const petCardJSX = petData && petData.map((pet, index) => (
@@ -112,7 +111,12 @@ const Household = (props) => {
     />
   ));
 
+  const { handleDelete } = props;
 
+  const handleClick = (e) => {
+    e.preventDefault();
+    handleDelete(id);
+  }
 
   return (
     <Layout>      
@@ -150,7 +154,8 @@ const Household = (props) => {
                 wifiUsername={household.wifi_password}
                 wifiPassword={household.wifi_username}
                 notes={household.notes}
-              />            
+                /> 
+              <button onClick={handleClick}>Delete</button>  
             </div>
           </Panel>
           <Panel>

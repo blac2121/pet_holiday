@@ -45,7 +45,7 @@ import Layout from '../../../components/shared/Layout';
         />
         <label>Age</label>
         <input
-          value={parseInt(pet.age)}
+          value={pet.age || 0}
           name='age'
           onChange={handleChange}
         />
