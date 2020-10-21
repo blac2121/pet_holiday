@@ -13,7 +13,6 @@ import PetCreate from '../screens/dashboard/pets/PetCreate';
 
 const MainContainer = () => {
   const [households, setHouseholds] = useState([]);
-  const [household, setHousehold] = useState([]);
   const [pets, setPets] = useState([]);
   const [contacts, setContacts] = useState([]);
   const history = useHistory();
@@ -28,7 +27,7 @@ const MainContainer = () => {
 
   const handleHouseholdCreate = async (householdData) => {
     const newHousehold = await postHousehold(householdData);
-    setHousehold(prevState => ([...prevState, newHousehold]));
+    setHouseholds(prevState => ([...prevState, newHousehold]));
     history.push('/households')
   }
 
