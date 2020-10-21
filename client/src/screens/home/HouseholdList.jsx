@@ -1,6 +1,10 @@
 import React from 'react';
+import { Link } from 'react-router-dom';
+
 import Layout from '../../components/shared/Layout';
 import HouseholdCard from './HouseholdCard';
+import AddButton from '../../components/AddButton';
+
 import styled from 'styled-components';
 
 
@@ -32,6 +36,9 @@ const HouseholdList = (props) => {
   return (
     <Layout>
       <HouseholdTitle>Households</HouseholdTitle>
+      <Link to='/households/new'>
+        <AddButton />
+      </Link>    
       <HouseholdContainer>
         {HouseholdCardJSX}
       </HouseholdContainer>

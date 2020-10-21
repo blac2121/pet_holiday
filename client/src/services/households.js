@@ -10,13 +10,18 @@ export const getOneHousehold = async (id) => {
   return resp.data;
 }
 
-export const postHousehold = async (foodData) => {
-  const resp = await api.post('/households', {food: foodData});
+export const postHousehold = async (householdData) => {
+  const resp = await api.post('/households', {household: householdData});
   return resp.data;
 }
 
-export const putHousehold = async (id, foodData) => {
-  const resp = await api.put(`/households/${id}`, {food: foodData});
+export const postPet = async (id, petData) => {
+  const resp = await api.post(`/households/${id}/pets`, {pet: petData});
+  return resp.data;
+}
+
+export const putHousehold = async (id, householdData) => {
+  const resp = await api.put(`/households/${id}`, {household: householdData});
   return resp.data;
 }
 
