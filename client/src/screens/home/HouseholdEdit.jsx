@@ -49,65 +49,64 @@ import Layout from '../../components/shared/Layout';
       <form onSubmit={handleSubmit}>
         <label>Name</label>
         <input
-          value={household.name}
-          name='name'
+          value={household.name || ''}
+          name='name' 
           required
           autoFocus
           onChange={handleChange}
         />
         <label>Street</label>
         <input
-          type="text"
-          name="street"
-          value={household.street}
+          name='street'
+          value={household.street || ''}
           onChange={handleChange}
         />
         <label>City</label>
         <input
-          value={household.city}
+          value={household.city || ''}
           name='city'
           onChange={handleChange}
         />
         <label>State</label>
         <input
-          value={household.state}
+          value={household.state || ''}
           name='state'
           onChange={handleChange}
         />
         <label>Zip Code</label>
         <input
-          value={household.zip_code}
+          value={household.zip_code || ''}
           name='zip_code'
           onChange={handleChange}
         />
         <label>Temperature</label>
         <input
           placeholder="low"
-          value={household.temp_low}
+          value={household.temp_low || ''}
           name='temp_low'
           onChange={handleChange}
         />
         <input
           placeholder="high"
-          value={household.temp_high}
+          value={household.temp_high || ''}
           name='temp_high'
           onChange={handleChange}
         />
         <label>Wifi Username</label>
         <input
-          value={household.wifi_username}
+          value={household.wifi_username || ''}
           name='wifi_username'
           onChange={handleChange}
         />
         <label>Wifi Password</label>
         <input
-          value={household.wifi_password}
+          value={household.wifi_password || ''}
           name='wifi_password'
           onChange={handleChange}
         />
         <label>Notes</label>
         <input
-          value={household.notes}
+          value={household.notes || ''}
           name='notes'
           onChange={handleChange}
         />        
