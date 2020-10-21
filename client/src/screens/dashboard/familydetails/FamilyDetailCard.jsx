@@ -1,4 +1,8 @@
 import React from 'react';
+import { Link } from 'react-router-dom';
+
+import EditButton from '../../../components/EditButton'
+
 import styled from 'styled-components';
 
 const FamilyDetailContainer = styled.div`
@@ -11,15 +15,23 @@ const FamilyDetailContainer = styled.div`
 `
 
 const FamilyDetailCard = (props) => {  
-  return (
+  return (     
     <FamilyDetailContainer>
-      <h3>{props.name}</h3>
-      <p>{props.street} {props.city}, {props.state} {props.zipCode} </p>
-      <p>{props.tempLow}</p>
-      <p>{props.tempHi}</p>
-      <p>{props.wifiUsername}</p>
-      <p>{props.wifiPassword}</p>
-      <p>{props.notes}</p>
+      <div>
+        <Link to={`/households/${props.id}/edit`}>
+          <EditButton />
+        </Link>  
+      </div>
+      <div>
+        <h3>{props.name}</h3>
+        <p>{props.street} {props.city}, {props.state} {props.zipCode} </p>
+        <p>{props.tempLow}</p>
+        <p>{props.tempHi}</p>
+        <p>{props.wifiUsername}</p>
+        <p>{props.wifiPassword}</p>
+        <p>{props.notes}</p>        
+      </div>
+
     </FamilyDetailContainer>      
   );
 }
