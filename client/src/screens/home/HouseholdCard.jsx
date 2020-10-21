@@ -1,6 +1,9 @@
 import React from 'react';
 import { Link } from 'react-router-dom';
-import EditButton from '../../components/EditButton'
+
+import EditButton from '../../components/EditButton';
+import DeleteButton from '../../components/DeleteButton';
+
 import styled from 'styled-components';
 
 const HouseholdContainer = styled.div`
@@ -17,6 +20,7 @@ const HouseholdTitle = styled.h4`
 
 const HouseholdCard = (props) => { 
 
+
   return (  
     <HouseholdContainer>   
       <Link to={`/households/${props.id}`}>
@@ -28,7 +32,7 @@ const HouseholdCard = (props) => {
       <div>
         <Link to={`/households/${props.id}/edit`}>
           <EditButton />
-        </Link>        
+        </Link>   
       </div>      
     </HouseholdContainer>    
   );

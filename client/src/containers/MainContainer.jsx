@@ -1,7 +1,7 @@
 import React, { useState, useEffect } from 'react';
 import { Route, Switch, useHistory } from 'react-router-dom';
 
-import { getAllHouseholds, postHousehold, putHousehold, postPet } from '../services/households';
+import { getAllHouseholds, postHousehold, putHousehold, postPet, deleteHousehold } from '../services/households';
 
 import HouseholdList from '../screens/home/HouseholdList';
 import Household from '../screens/dashboard/HouseholdDashboard';
@@ -39,14 +39,19 @@ const MainContainer = () => {
     history.push('/households')
   }
 
-
-  const handlePetCreate = async (petData) => {
-    const newPet = await postPet(petData);
+  const handlePetCreate = async (id, petData) => {
+    const newPet = await postPet(parseInt(id), petData);
     setPets(prevState => ([...prevState, newPet]));
     // history.push('/households')
   }
 
 
+  const handleDelete = async (id) => {
+    const removeHousehold = await deleteHousehold(id);
+    const HouseholdsData = await getAllHouseholds();
+    setHouseholds(HouseholdsData);
+    history.push('/households')
+  }
 
   return (
     <Switch>
@@ -60,7 +65,7 @@ const MainContainer = () => {
         <PetCreate handlePetCreate={handlePetCreate} />         
       </Route>      
       <Route path='/households/:id'>
-        <Household households={households} />
+        <Household households={households} handleDelete={handleDelete} />
       </Route>
       <Route path='/'>
         <HouseholdList households={households} />

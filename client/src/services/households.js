@@ -16,7 +16,8 @@ export const postHousehold = async (householdData) => {
 }
 
 export const postPet = async (id, petData) => {
-  const resp = await api.post(`/households/${id}/pets`, {pet: petData});
+  console.log(id)
+  const resp = await api.post(`/households/${id}/pets`, petData);
   return resp.data;
 }
 
@@ -25,7 +26,7 @@ export const putHousehold = async (id, householdData) => {
   return resp.data;
 }
 
-export const destroyHousehold = async (id) => {
+export const deleteHousehold = async (id) => {
   const resp = await api.delete(`/households/${id}`);
   return resp;
 }
