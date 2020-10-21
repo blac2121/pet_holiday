@@ -1,4 +1,6 @@
-import React, { useState } from 'react';
+import React, { useState, useEffect } from 'react';
+import { useParams } from 'react-router-dom';
+
 import Layout from '../../components/shared/Layout';
 
  const EditHousehold = (props) => {
@@ -15,8 +17,19 @@ import Layout from '../../components/shared/Layout';
     notes: ''
   })
    
-  const { handleHouseholdEdit } = props;
-
+  const { handleHouseholdEdit, households } = props;  
+  const { id } = useParams();
+   
+  useEffect(() => {
+    const prefillFormData = () => {
+      const { name, street, city, state, zip_code, temp_low, temp_high, wifi_username, wifi_password, notes } = households.find(household => household.id === Number(id));
+      setHousehold({ name, street, city, state, zip_code, temp_low, temp_high, wifi_username, wifi_password, notes });
+    }
+    if (households.length) {
+      prefillFormData()
+    }
+  }, [households, id])
+   
   const handleChange = (e) => {
     const { name, value } = e.target;
     setHousehold({
@@ -27,12 +40,12 @@ import Layout from '../../components/shared/Layout';
    
   const handleSubmit = (e) => {
     e.preventDefault();
-    handleHouseholdEdit(household);
+    handleHouseholdEdit(id, household);
   }
 
   return (
     <Layout>
-      <h3>Add Household</h3>
+      <h3>Edit Household</h3>
       <form onSubmit={handleSubmit}>
         <label>Name</label>
         <input

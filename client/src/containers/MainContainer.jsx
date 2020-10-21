@@ -54,7 +54,7 @@ const MainContainer = () => {
         <HouseholdCreate handleHouseholdCreate={handleHouseholdCreate} />         
       </Route>  
       <Route path='/households/:id/edit'>
-        <HouseholdEdit handleHouseholdEdit={handleHouseholdEdit} />         
+        <HouseholdEdit handleHouseholdEdit={handleHouseholdEdit} households={households} />         
       </Route>      
       <Route path='/households/:id/pets/new'>
         <PetCreate handlePetCreate={handlePetCreate} />         
