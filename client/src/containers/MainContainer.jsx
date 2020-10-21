@@ -1,12 +1,12 @@
 import React, { useState, useEffect } from 'react';
 import { Route, Switch, useHistory } from 'react-router-dom';
 
-import { getAllHouseholds, getOneHousehold  } from '../services/households';
+import { getAllHouseholds, getOneHousehold, postPet  } from '../services/households';
 // import { getAllFoods, postFood, putFood } from '../services/foods';
 
 import HouseholdList from '../screens/home/HouseholdList';
 import Household from '../screens/dashboard/HouseholdDashboard';
-// import FoodCreate from '../screens/FoodCreate';
+import PetCreate from '../screens/dashboard/pets/PetCreate';
 // import FoodEdit from '../screens/FoodEdit';
 // import FoodDetail from '../screens/FoodDetail';
 
@@ -24,11 +24,11 @@ const MainContainer = () => {
     fetchHouseholds();
   }, [])
 
-  // const handleFoodCreate = async (foodData) => {
-  //   const newFood = await postFood(foodData);
-  //   setFoods(prevState => ([...prevState, newFood]));
-  //   history.push('/foods')
-  // }
+  const handlePetCreate = async (petData) => {
+    const newPet = await postPet(petData);
+    setPets(prevState => ([...prevState, newPet]));
+    // history.push('/households')
+  }
 
   // const handleFoodEdit = async (id, foodData) => {
   //   const updatedFood = await putFood(id, foodData);
@@ -40,15 +40,15 @@ const MainContainer = () => {
 
   return (
     <Switch>
+      <Route path='/households/:id/pets/new'>
+        <PetCreate handlePetCreate={handlePetCreate} />         
+      </Route>      
       <Route path='/households/:id'>
         <Household households={households} />
       </Route>
       <Route path='/'>
         <HouseholdList households={households} />
       </Route>      
-      {/* <Route path='/foods/new'>
-        <FoodCreate handleFoodCreate={handleFoodCreate} />         
-      </Route> */}
       {/* <Route path='/foods/:id/edit'>
         <FoodEdit
           handleFoodEdit={handleFoodEdit}

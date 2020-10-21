@@ -1,10 +1,13 @@
 import React, { useEffect, useState } from 'react';
-import { useParams } from 'react-router-dom';
+import { useParams, Link } from 'react-router-dom';
 import { getOneHousehold } from '../../services/households';
+
 import Layout from '../../components/shared/Layout';
 import PetCard from './pets/PetCard';
 import FamilyDetailCard from './familydetails/FamilyDetailCard';
 import ContactCard from './contacts/ContactCard';
+import AddButton from '../../components/AddButton'
+
 import styled from 'styled-components';
 
 const TitleMainContainer = styled.div`
@@ -29,6 +32,13 @@ const Panel = styled.div`
   border: 1px solid #DFDFDF;
   background-color: #F9F9FA;
   margin: 30px;
+`
+
+const HeaderContainer = styled.div`
+  display: flex;
+  justify-content: space-between;
+  align-items: baseline;
+  margin: 10px 30px 0px;
 `
 
 const PetsContainer = styled.div`
@@ -63,7 +73,7 @@ const FamilyDetailTitle = styled.h4`
   margin: 25px 0px 0px 25px;
 `
 
-const Household = () => {
+const Household = (props) => {
   const [household, setHousehold] = useState([]);
   const { id } = useParams(); 
 
@@ -100,6 +110,8 @@ const Household = () => {
     />
   ));
 
+
+
   return (
     <Layout>      
       <TitleMainContainer>
@@ -107,9 +119,12 @@ const Household = () => {
         <MainContainer>
         <PetsContainer>
           <Panel>         
-            <div>
+            <HeaderContainer>
               <PetTitle>Pets</PetTitle>
-            </div>
+              <Link to={`/households/${id}/pets/new`}>
+                <AddButton />
+              </Link>                             
+            </HeaderContainer>
             <div>
               {petCardJSX}
             </div>               
@@ -137,9 +152,12 @@ const Household = () => {
             </div>
           </Panel>
           <Panel>
-            <div>
+            <HeaderContainer>
               <ContactTitle>Contacts</ContactTitle>
-            </div>
+              <Link to="/contacts/new">
+                <AddButton />
+              </Link>    
+            </HeaderContainer>
             <div>{contactCardJSX}</div>
           </Panel>        
         </FamAndContactContainer>
