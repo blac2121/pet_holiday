@@ -25,8 +25,6 @@ const MainContainer = () => {
     fetchHouseholds();
   }, [])
 
-  console.log(households);
-
   const handleHouseholdCreate = async (householdData) => {
     const newHousehold = await postHousehold(householdData);
     setHouseholds(prevState => ([...prevState, newHousehold]));
@@ -50,7 +48,8 @@ const MainContainer = () => {
 
   const handleDelete = async (id) => {
     const removeHousehold = await deleteHousehold(id);
-    setHouseholds(prevState => ([...prevState, removeHousehold]));
+    const HouseholdsData = await getAllHouseholds();
+    setHouseholds(HouseholdsData);
     history.push('/households')
   }
 
