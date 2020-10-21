@@ -37,35 +37,31 @@ import Layout from '../../../components/shared/Layout';
         <label>Age</label>
         <input
           value={pet.age}
-          name='price'
-          required
+          name='age'
           onChange={handleChange}
         />
         <label>Medical Notes</label>
         <textarea
           rows={10}
           value={pet.medical_description}
-          name='description'
-          required
+          name='medical_description'
           onChange={handleChange}
         />
         <label>Feeding Notes</label>
         <textarea
           rows={10}
           value={pet.feeding_description}
-          name='description'
-          required
+          name='feeding_description'
           onChange={handleChange}
         />
         <label>Notes</label>
         <textarea
           rows={10}
           value={pet.notes}
-          name='description'
-          required
+          name='notes'
           onChange={handleChange}
         />  
-        <button type='submit' className="submit-button">Submit</button>
+        <button type='submit'>Submit</button>
       </form>
     </Layout>
   )

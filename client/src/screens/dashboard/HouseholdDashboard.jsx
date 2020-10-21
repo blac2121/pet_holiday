@@ -6,7 +6,7 @@ import Layout from '../../components/shared/Layout';
 import PetCard from './pets/PetCard';
 import FamilyDetailCard from './familydetails/FamilyDetailCard';
 import ContactCard from './contacts/ContactCard';
-import AddButton from '../../components/AddButton'
+import AddButton from '../../components/AddButton';
 
 import styled from 'styled-components';
 

@@ -10,8 +10,8 @@ export const getOneHousehold = async (id) => {
   return resp.data;
 }
 
-export const postHousehold = async (foodData) => {
-  const resp = await api.post('/households', {food: foodData});
+export const postHousehold = async (householdData) => {
+  const resp = await api.post('/households', {household: householdData});
   return resp.data;
 }
 
