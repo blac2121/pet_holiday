@@ -1,7 +1,7 @@
 import React, { useState } from 'react';
-import Layout from '../../../components/shared/Layout';
+import Layout from '../../components/shared/Layout';
 
- const CreateHousehold = (props) => {
+ const EditHousehold = (props) => {
   const [household, setHousehold] = useState({
     name: '',
     street: '',
@@ -15,7 +15,7 @@ import Layout from '../../../components/shared/Layout';
     notes: ''
   })
    
-  const { handleHouseholdCreate } = props;
+  const { handleHouseholdEdit } = props;
 
   const handleChange = (e) => {
     const { name, value } = e.target;
@@ -27,7 +27,7 @@ import Layout from '../../../components/shared/Layout';
    
   const handleSubmit = (e) => {
     e.preventDefault();
-    handleHouseholdCreate(household);
+    handleHouseholdEdit(household);
   }
 
   return (
@@ -104,4 +104,4 @@ import Layout from '../../../components/shared/Layout';
   )
 }
 
- export default CreateHousehold;
+ export default EditHousehold;

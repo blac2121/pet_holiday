@@ -20,12 +20,12 @@ const Button = styled.button`
   }
 `
 
-const AddButton = () => {
+const EditButton = () => {
 
   return (
-    <Button>Add</Button>
+    <Button>Edit</Button>
   )
   
 }
 
-export default AddButton;
+export default EditButton;
