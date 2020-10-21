@@ -85,6 +85,8 @@ const Household = (props) => {
     fetchHousehold();
   }, [id])
 
+  console.log(household);
+  
   const petData = household.pets 
   const petCardJSX = petData && petData.map((pet, index) => (
     <PetCard

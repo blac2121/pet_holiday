@@ -25,6 +25,8 @@ const MainContainer = () => {
     fetchHouseholds();
   }, [])
 
+  console.log(households);
+
   const handleHouseholdCreate = async (householdData) => {
     const newHousehold = await postHousehold(householdData);
     setHouseholds(prevState => ([...prevState, newHousehold]));
@@ -39,9 +41,9 @@ const MainContainer = () => {
     history.push('/households')
   }
 
-
-  const handlePetCreate = async (petData) => {
-    const newPet = await postPet(petData);
+  const handlePetCreate = async (id, petData) => {
+    console.log(id, petData)
+    const newPet = await postPet(id, petData);
     setPets(prevState => ([...prevState, newPet]));
     // history.push('/households')
   }
