@@ -3,13 +3,14 @@ import { useParams } from 'react-router-dom';
 import Layout from '../../../components/shared/Layout';
 
  const CreatePet = (props) => {
-  const [pet, setPet] = useState({
-    name: '',
-    img: '',
-    age: 0,
-    medical_description: '',
-    feeding_description: '',
-    notes: ''
+   const [pet, setPet] = useState({
+     name: '',
+     img: '',
+     age: 0,
+     medical_description: '',
+     feeding_description: '',
+     notes: '',
+     household_id: ''
   })
    
   const { handlePetCreate } = props;
@@ -22,7 +23,7 @@ import Layout from '../../../components/shared/Layout';
     const value = target.name === "age" ? parseInt(target.value) : target.value;
     setPet({
       ...pet,
-      [name]: value,
+      [name]: value
     });
   };
    
