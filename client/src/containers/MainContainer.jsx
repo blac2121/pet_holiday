@@ -42,7 +42,7 @@ const MainContainer = () => {
   const handlePetCreate = async (id, petData) => {
     const newPet = await postPet(parseInt(id), petData);
     setPets(prevState => ([...prevState, newPet]));
-    // history.push('/households')
+    history.push(`/households/${id}`)
   }
 
 
