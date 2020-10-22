@@ -9,7 +9,8 @@ import Layout from '../../../components/shared/Layout';
     age: 0,
     medical_description: '',
     feeding_description: '',
-    notes: ''
+    notes: '',
+    household_id: ''
   })
    
   const { handlePetCreate } = props;
@@ -23,6 +24,7 @@ import Layout from '../../../components/shared/Layout';
     setPet({
       ...pet,
       [name]: value,
+      household_id: id
     });
   };
    
@@ -33,7 +35,7 @@ import Layout from '../../../components/shared/Layout';
 
   return (
     <Layout>
-      <h3>Add Pet</h3>
+      <h3>Edit {pet.name}</h3>
       <form onSubmit={handleSubmit}>
         <label>Name</label>
         <input

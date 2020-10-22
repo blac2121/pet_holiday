@@ -1,13 +1,15 @@
 import React, { useState, useEffect } from 'react';
 import { Route, Switch, useHistory } from 'react-router-dom';
 
-import { getAllHouseholds, postHousehold, putHousehold, postPet, deleteHousehold } from '../services/households';
+import { getAllHouseholds, postHousehold, putHousehold, deleteHousehold } from '../services/households';
+import { postPet, putPet, deletePet } from '../services/pets';
 
 import HouseholdList from '../screens/home/HouseholdList';
 import Household from '../screens/dashboard/HouseholdDashboard';
 import HouseholdCreate from '../screens/home/HouseholdCreate';
 import HouseholdEdit from '../screens/home/HouseholdEdit';
 import PetCreate from '../screens/dashboard/pets/PetCreate';
+import PetEdit from '../screens/dashboard/pets/PetEdit';
 // import FoodEdit from '../screens/FoodEdit';
 // import FoodDetail from '../screens/FoodDetail';
 
@@ -39,19 +41,26 @@ const MainContainer = () => {
     history.push('/households')
   }
 
-  const handlePetCreate = async (id, petData) => {
-    const newPet = await postPet(parseInt(id), petData);
-    setPets(prevState => ([...prevState, newPet]));
-    history.push(`/households/${id}`)
-  }
-
-
   const handleDelete = async (id) => {
     const removeHousehold = await deleteHousehold(id);
     const HouseholdsData = await getAllHouseholds();
     setHouseholds(HouseholdsData);
     history.push('/households')
   }
+
+  const handlePetCreate = async (id, petData) => {
+    const newPet = await postPet(parseInt(id), petData);
+    setPets(prevState => ([...prevState, newPet]));
+    history.push(`/households/${id}`)
+  }
+
+  const handlePetEdit = async (id, petData) => {
+    const newPet = await postPet(parseInt(id), petData);
+    setPets(prevState => ([...prevState, newPet]));
+    history.push(`/households/${id}`)
+  }
+
+
 
   return (
     <Switch>
@@ -70,13 +79,9 @@ const MainContainer = () => {
       <Route path='/'>
         <HouseholdList households={households} />
       </Route>      
-      {/* <Route path='/foods/:id/edit'>
-        <FoodEdit
-          handleFoodEdit={handleFoodEdit}
-          foods={foods}
-        />
+      {/* <Route path='/households/:id/pets/:id/edit'>
+        <PetEdit handlePetEdit={handlePetEdit} households={households} />
       </Route> */}
-
       {/* <Route path='/foods'>
         <Foods
           foods={foods}

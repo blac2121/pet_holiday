@@ -1,4 +1,8 @@
 import React from 'react';
+import { Link } from 'react-router-dom';
+
+import EditButton from '../../../components/EditButton';
+
 import styled from 'styled-components';
 
 const PetContainer = styled.div`
@@ -20,7 +24,12 @@ const PetCard = (props) => {
         <p>{props.medical}</p>
         <p>{props.feeding}</p>
         <p>{props.notes}</p>
-      </PetContainer>     
+        <div>
+          <Link to={`/households/${props.id}/pets/${props.id}/edit`}>
+            <EditButton />
+          </Link>   
+        </div>        
+      </PetContainer> 
     </>  
   );
 }
