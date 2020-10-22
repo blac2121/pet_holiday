@@ -105,11 +105,12 @@ const Household = (props) => {
   const contactCardJSX = contactData && contactData.map((contact, index) => (
     <ContactCard
       key={index}
-      id={contact.id}
+      contactID={contact.id}
       name={contact.name} 
       relationship={contact.relationship} 
       phoneNum={contact.phone_num} 
       notes={contact.notes} 
+      household={household}
     />
   ));
 
@@ -163,7 +164,7 @@ const Household = (props) => {
           <Panel>
             <HeaderContainer>
               <ContactTitle>Contacts</ContactTitle>
-              <Link to="/contacts/new">
+              <Link to={`/households/${id}/contacts/new`}>
                 <AddButton />
               </Link>    
             </HeaderContainer>

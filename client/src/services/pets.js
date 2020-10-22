@@ -1,5 +1,10 @@
 import api from './api-config';
 
+export const getOnePet = async (id, petID) => {
+  const resp = await api.get(`/households/${id}/pets/${petID}`);
+  return resp.data;
+}
+
 export const postPet = async (id, petData) => {
   const resp = await api.post(`/households/${id}/pets`, petData);
   return resp.data;

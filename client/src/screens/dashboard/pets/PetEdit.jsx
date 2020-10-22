@@ -1,12 +1,12 @@
 import React, { useState, useEffect } from 'react';
 import { useParams } from 'react-router-dom';
-import { getOneHousehold } from '../../../services/households';
+import { getOnePet } from '../../../services/pets';
 
 import Layout from '../../../components/shared/Layout';
 
 
 const EditPet = (props) => {
-  const [household, setHousehold] = useState([]);
+  const [petRecord, setPetRecord] = useState({});
   const [pet, setPet] = useState({
     name: '',
     img: '',
@@ -17,29 +17,18 @@ const EditPet = (props) => {
     household_id: ''
   })
    
-  const { handlePetEdit, households } = props;
-  const { id } = useParams();
+  const { handlePetEdit } = props;
+  const { id, pet_id } = useParams();
    
   useEffect(() => {
-  const fetchHousehold = async () => {
-    const householdData = await getOneHousehold(id);
-    setHousehold(householdData);
+  const fetchPet = async () => {
+    const petData = await getOnePet(id, pet_id);
+    setPet(petData);
   }
-  fetchHousehold();
-  }, [id])
+  fetchPet();
+  }, [id, pet_id])
 
-  console.log(household); 
   
-  // useEffect(() => {
-  //   const prefillFormData = () => {
-  //     const { name, img, age, medical_description, feeding_description, notes, household_id } = household.pets.find(pet => pet.id === Number(id));
-  //     setPet({ name, img, age, medical_description, feeding_description, notes, household_id });
-  //   }
-  //   if (household.pets.length) {
-  //     prefillFormData()
-  //   }
-  // }, [household, id])
-   
   const handleChange = (e) => {
     const target = e.target;
     const { name } = target;

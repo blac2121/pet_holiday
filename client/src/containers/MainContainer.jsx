@@ -63,7 +63,6 @@ const MainContainer = () => {
   }
 
 
-
   return (
     <Switch>
       <Route path='/households/new'>
@@ -72,24 +71,18 @@ const MainContainer = () => {
       <Route path='/households/:id/edit'>
         <HouseholdEdit handleHouseholdEdit={handleHouseholdEdit} households={households} />         
       </Route>  
-      {/* <Route path='/households/:id/pets/new'>
+      <Route path='/households/:id/pets/new'>
         <PetCreate handlePetCreate={handlePetCreate} />         
       </Route>  
       <Route path='/households/:id/pets/:pet_id/edit'>
         <PetEdit handlePetEdit={handlePetEdit} households={households} />
-      </Route>       */}
+      </Route>      
       <Route path='/households/:id'>
         <Household households={households} handleDelete={handleDelete} />
       </Route>      
       <Route exact path='/households'>
         <HouseholdList households={households} />
       </Route>      
-
-      {/* <Route path='/foods'>
-        <Foods
-          foods={foods}
-        />
-      </Route> */}
     </Switch>
   )
 }
