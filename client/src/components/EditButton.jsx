@@ -1,31 +1,15 @@
 import React from 'react';
-import styled from 'styled-components';
+import { FontAwesomeIcon } from "@fortawesome/react-fontawesome"
+import { faEdit } from "@fortawesome/free-solid-svg-icons";
 
-const Button = styled.button`
-  border: none;
-  border: 1px solid #DFDFDF;
-  color: #3A3A3A;
-  padding: 15px 32px;
-  font-size: 16px;
-  border-radius: 2px;
-  cursor: pointer;
-  font-weight: 700;
+const editPencil =
+  <FontAwesomeIcon
+    icon={faEdit}
+    size="2x"
+    color="#DAAB5E"
+  />
 
+const EditButton = () => <div>{editPencil}</div>
 
-  &:hover {
-    background: #C3C1C1;
-  }
-  @media (max-width: 425px) {
-    width: 225px;
-  }
-`
-
-const EditButton = () => {
-
-  return (
-    <Button>Edit</Button>
-  )
-  
-}
 
 export default EditButton;

@@ -2,13 +2,13 @@ import React from 'react';
 import { Link } from 'react-router-dom';
 
 import EditButton from '../../../components/EditButton'
-
+import '../dashboard.css';
 import styled from 'styled-components';
 
 const FamilyDetailContainer = styled.div`
-  border: 3px solid #DFDFDF;
-  border-radius: 3px;
-  margin: 30px;
+  border: 2px solid #23309E;
+  border-radius: 5px;
+  margin: 50px;
   padding: 15px 25px;
   box-shadow: 0 20px 25px -5px rgba(0, 0, 0, 0.3);
 `
@@ -22,12 +22,12 @@ const Grid = styled.div`
 const FamilyDetailCard = (props) => {  
   return (     
     <FamilyDetailContainer>
-      <div>
+      <div className="header-container">
+        <h3 className="card-title">{props.name}</h3>
         <Link to={`/households/${props.id}/edit`}>
           <EditButton />
         </Link>  
       </div>
-      <h3>{props.name}</h3>
       <Grid>
         <p className="card-labels">Address</p>
         <p className="card-text fam-font">{props.street} {props.city}, {props.state} {props.zipCode} </p>
@@ -40,7 +40,6 @@ const FamilyDetailCard = (props) => {
         <p className="card-labels">Notes</p>
         <p className="card-text fam-font">{props.notes}</p>        
       </Grid>
-
     </FamilyDetailContainer>      
   );
 }

@@ -8,9 +8,9 @@ import styled from 'styled-components';
 const PetContainer = styled.div`
   display: flex;
   flex-direction: column;
-  border: 3px solid #DFDFDF;
-  border-radius: 3px;
-  margin: 40px;
+  border: 2px solid #488047;
+  border-radius: 5px;
+  margin: 50px;
   padding: 15px 25px;
   box-shadow: 0 20px 25px -5px rgba(0, 0, 0, 0.3);
 `
@@ -50,9 +50,7 @@ const PetCard = (props) => {
           <p className="card-labels">Notes</p>
           <p className="card-text pet-font">{props.notes}</p>          
         </Grid>
-        <div>
-          <DeleteButton label="Delete" onClick={handleClick}></DeleteButton>  
-        </div>        
+        <DeleteButton onClick={handleClick}></DeleteButton>      
       </PetContainer> 
     </>  
   );
