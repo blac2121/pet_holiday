@@ -15,8 +15,8 @@ export const putPet = async (id, petData, pet_id) => {
   return resp.data;
 }
 
-export const deletePet = async (id) => {
-  const resp = await api.delete(`/households/${id}`);
+export const deletePet = async (id, pet_id) => {
+  const resp = await api.delete(`/households/${id}/pets/${pet_id}`);
   return resp;
 }
 

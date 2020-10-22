@@ -41,7 +41,7 @@ const MainContainer = () => {
     history.push('/households')
   }
 
-  const handleDelete = async (id) => {
+  const handleHouseholdDelete = async (id) => {
     const removeHousehold = await deleteHousehold(id);
     const HouseholdsData = await getAllHouseholds();
     setHouseholds(HouseholdsData);
@@ -62,7 +62,6 @@ const MainContainer = () => {
     history.push(`/households/${id}`)
   }
 
-
   return (
     <Switch>
       <Route path='/households/new'>
@@ -78,7 +77,7 @@ const MainContainer = () => {
         <PetEdit handlePetEdit={handlePetEdit} households={households} />
       </Route>      
       <Route path='/households/:id'>
-        <Household households={households} handleDelete={handleDelete} />
+        <Household households={households} handleHouseholdDelete={handleHouseholdDelete} />
       </Route>      
       <Route exact path='/households'>
         <HouseholdList households={households} />

@@ -12,6 +12,16 @@ const PetContainer = styled.div`
 `
 
 const PetCard = (props) => {  
+
+  const { handlePetDelete } = props;
+  const id = props.household.id
+  const pet_id = props.petID
+
+  const handleClick = (e) => {
+    e.preventDefault();
+    handlePetDelete(id, pet_id);
+  }
+  
   return (   
     <>       
       <PetContainer>
@@ -24,6 +34,7 @@ const PetCard = (props) => {
           <Link to={`/households/${props.household.id}/pets/${props.petID}/edit`}>
             <EditButton />
           </Link>   
+          <button onClick={handleClick}>Delete</button> 
         </div>        
       </PetContainer> 
     </>  

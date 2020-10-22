@@ -4,7 +4,6 @@ import { getOnePet } from '../../../services/pets';
 
 import Layout from '../../../components/shared/Layout';
 
-
 const EditPet = (props) => {
   const [pet, setPet] = useState({
     name: '',
@@ -34,7 +33,7 @@ const EditPet = (props) => {
     setPet({
       ...pet,
       [name]: value,
-      // household_id: id
+      household_id: id
     });
   };
    

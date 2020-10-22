@@ -1,6 +1,7 @@
 import React, { useEffect, useState } from 'react';
-import { useParams, Link } from 'react-router-dom';
+import { useParams, Link, useHistory } from 'react-router-dom';
 import { getOneHousehold } from '../../services/households';
+import { deletePet } from '../../services/pets';
 
 import Layout from '../../components/shared/Layout';
 import PetCard from './pets/PetCard';
@@ -85,7 +86,11 @@ const Household = (props) => {
     fetchHousehold();
   }, [id])
 
-  console.log(household);
+  const handlePetDelete = async (id, pet_id) => {
+    const removePet = await deletePet(id, pet_id);
+    const PetData = await getOneHousehold(id);
+    setHousehold(PetData);
+  }
   
   const petData = household.pets 
   const petCardJSX = petData && petData.map((pet, index) => (
@@ -98,6 +103,7 @@ const Household = (props) => {
       feeding={pet.feeding_description}
       notes={pet.notes}
       household={household}
+      handlePetDelete={handlePetDelete}
     />
   ));
 
@@ -114,11 +120,11 @@ const Household = (props) => {
     />
   ));
 
-  const { handleDelete } = props;
+  const { handleHouseholdDelete } = props;
 
   const handleClick = (e) => {
     e.preventDefault();
-    handleDelete(id);
+    handleHouseholdDelete(id);
   }
 
   return (
