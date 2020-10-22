@@ -1,4 +1,5 @@
 class ContactsController < ApplicationController
+  before_action :set_contact, only: [:show, :update, :destroy]
 
   def index
     @household = Household.find(params[:@household_id]) 
@@ -15,7 +16,6 @@ class ContactsController < ApplicationController
     @contact = Contact.new(contact_params)
 
     if @contact.save
-      #is this the right contact or os the the contact with ID
       render json: @contact, status: :created, location: @household
     else
       render json: @contact.errors, status: :unprocessable_entity

@@ -19,11 +19,11 @@ const EditPet = (props) => {
   const { id, pet_id } = useParams();
    
   useEffect(() => {
-  const fetchPet = async () => {
-    const petData = await getOnePet(id, pet_id);
-    setPet(petData);
-  }
-  fetchPet();
+    const fetchPet = async () => {
+      const petData = await getOnePet(id, pet_id);
+      setPet(petData);
+    }
+    fetchPet();
   }, [id, pet_id])
 
   const handleChange = (e) => {

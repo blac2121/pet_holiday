@@ -34,10 +34,6 @@ class PetsController < ApplicationController
     @pet.destroy
   end
 
-  def cleanup_pagination_params
-    params[:household_id] = params[:household_id].to_i
-  end
-
   private
   def set_pet
     @pet = Pet.find(params[:id].to_i)

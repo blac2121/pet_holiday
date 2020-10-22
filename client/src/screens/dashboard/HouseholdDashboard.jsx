@@ -2,6 +2,7 @@ import React, { useEffect, useState } from 'react';
 import { useParams, Link } from 'react-router-dom';
 import { getOneHousehold } from '../../services/households';
 import { deletePet } from '../../services/pets';
+import { deleteContact } from '../../services/contacts';
 
 import Layout from '../../components/shared/Layout';
 import PetCard from './pets/PetCard';
@@ -91,7 +92,14 @@ const Household = (props) => {
     const PetData = await getOneHousehold(id);
     setHousehold(PetData);
   }
+
+  const handleContactDelete = async (id, contact_id) => {
+    await deleteContact(id, contact_id);
+    const contactData = await getOneHousehold(id);
+    setHousehold(contactData);
+  }
   
+  console.log(household);
   const petData = household.pets 
   const petCardJSX = petData && petData.map((pet, index) => (
     <PetCard
@@ -117,6 +125,7 @@ const Household = (props) => {
       phoneNum={contact.phone_num} 
       notes={contact.notes} 
       household={household}
+      handleContactDelete={handleContactDelete}
     />
   ));
 

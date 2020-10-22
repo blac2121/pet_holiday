@@ -14,7 +14,7 @@ import PetCreate from '../screens/dashboard/pets/PetCreate';
 import PetEdit from '../screens/dashboard/pets/PetEdit';
 
 import ContactCreate from '../screens/dashboard/contacts/ContactCreate';
-
+import ContactEdit from '../screens/dashboard/contacts/ContactEdit';
 
 const MainContainer = () => {
   const [households, setHouseholds] = useState([]);
@@ -91,10 +91,13 @@ const MainContainer = () => {
         <PetCreate handlePetCreate={handlePetCreate} />         
       </Route>  
       <Route path='/households/:id/pets/:pet_id/edit'>
-        <PetEdit handlePetEdit={handlePetEdit} households={households} />
+        <PetEdit handlePetEdit={handlePetEdit} />
       </Route>     
       <Route path='/households/:id/contacts/new'>
         <ContactCreate handleContactCreate={handleContactCreate} />         
+      </Route>  
+      <Route path='/households/:id/contacts/:contact_id/edit'>
+        <ContactEdit handleContactEdit={handleContactEdit} />
       </Route>  
       <Route path='/households/:id'>
         <Household households={households} handleHouseholdDelete={handleHouseholdDelete} />
