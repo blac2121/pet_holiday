@@ -6,9 +6,9 @@ import '../dashboard.css';
 import styled from 'styled-components';
 
 const FamilyDetailContainer = styled.div`
-  border: 3px solid #DFDFDF;
-  border-radius: 3px;
-  margin: 30px;
+  border: 2px solid #23309E;
+  border-radius: 5px;
+  margin: 50px;
   padding: 15px 25px;
   box-shadow: 0 20px 25px -5px rgba(0, 0, 0, 0.3);
 `

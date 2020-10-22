@@ -6,7 +6,7 @@
 
 .card-title {
   font-size: 28px;
-  font-weight: 400;
+  font-weight: 600;
 }
 
 .card-labels {
@@ -17,7 +17,7 @@
 }
 
 .card-text {
-  font-size: 18px;
+  font-size: 22px;
 }
 
 .pet-font {
@@ -25,7 +25,7 @@
 }
 
 .contact-font {
-  color: #4B138F;
+  color: #65379C;
 }
 
 .fam-font {
