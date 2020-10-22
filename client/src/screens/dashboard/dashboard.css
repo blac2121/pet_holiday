@@ -1,0 +1,29 @@
+.header-container {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+
+.card-title {
+  font-size: 28px;
+  font-weight: 400;
+}
+
+.card-labels {
+  font-size: 22px;
+  justify-self: left;
+  align-self: center;
+  font-weight: 500;
+}
+
+.card-text {
+  font-size: 18px;
+}
+
+.pet-font {
+  color: #488047;
+}
+
+.contact-font {
+  color: #B85240;
+}

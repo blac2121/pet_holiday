@@ -20,10 +20,10 @@ const Button = styled.button`
   }
 `
 
-const DeleteButton = () => {
+const DeleteButton = (props) => {
 
   return (
-    <Button>Delete</Button>
+    <Button onClick={props.handleClick}>{props.label}</Button>
   )
   
 }
