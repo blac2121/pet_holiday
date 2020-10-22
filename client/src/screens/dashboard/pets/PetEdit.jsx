@@ -6,7 +6,6 @@ import Layout from '../../../components/shared/Layout';
 
 
 const EditPet = (props) => {
-  const [petRecord, setPetRecord] = useState({});
   const [pet, setPet] = useState({
     name: '',
     img: '',
@@ -26,9 +25,8 @@ const EditPet = (props) => {
     setPet(petData);
   }
   fetchPet();
-  }, [id, pet_id])
+  }, [pet_id])
 
-  
   const handleChange = (e) => {
     const target = e.target;
     const { name } = target;
@@ -36,13 +34,13 @@ const EditPet = (props) => {
     setPet({
       ...pet,
       [name]: value,
-      household_id: id
+      // household_id: id
     });
   };
    
   const handleSubmit = (e) => {
     e.preventDefault();
-    handlePetEdit(parseInt(id), pet);
+    handlePetEdit(id, pet, pet_id);
   }
 
   return (

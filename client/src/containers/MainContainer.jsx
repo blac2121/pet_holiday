@@ -54,10 +54,10 @@ const MainContainer = () => {
     history.push(`/households/${id}`)
   }
 
-  const handlePetEdit = async (id, petData) => {
-    const updatedHousehold = await putPet(id, petData);
-    setHouseholds(prevState => prevState.map(household => {
-      return household.id === Number(id) ? updatedHousehold : household
+  const handlePetEdit = async (id, petData, pet_id) => {
+    const updatedPet = await putPet(id, petData, pet_id);
+    setPets(prevState => prevState.map(pet => {
+      return pet.id === Number(pet_id) ? updatedPet : pet
     }))
     history.push(`/households/${id}`)
   }
