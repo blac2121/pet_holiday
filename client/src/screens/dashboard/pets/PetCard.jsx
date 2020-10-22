@@ -50,9 +50,7 @@ const PetCard = (props) => {
           <p className="card-labels">Notes</p>
           <p className="card-text pet-font">{props.notes}</p>          
         </Grid>
-        <div>
-          <DeleteButton label="Delete" onClick={handleClick}></DeleteButton>  
-        </div>        
+        <DeleteButton onClick={handleClick}></DeleteButton>      
       </PetContainer> 
     </>  
   );

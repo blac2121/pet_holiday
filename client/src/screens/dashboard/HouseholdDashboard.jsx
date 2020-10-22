@@ -9,6 +9,7 @@ import PetCard from './pets/PetCard';
 import FamilyDetailCard from './familydetails/FamilyDetailCard';
 import ContactCard from './contacts/ContactCard';
 import AddButton from '../../components/AddButton';
+import DeleteButton from '../../components/DeleteButton';
 
 import styled from 'styled-components';
 
@@ -133,52 +134,54 @@ const Household = (props) => {
     <Layout>      
       <TitleMainContainer>
         <MainContainer>
-        <PetsContainer>
-          <Panel>         
-            <HeaderContainer>
-              <PetTitle>Pets</PetTitle>
-              <Link to={`/households/${id}/pets/new`}>
-                <AddButton />
-              </Link>                             
-            </HeaderContainer>
-            <div>
-              {petCardJSX}
-            </div>               
-          </Panel>
-        </PetsContainer>
-        <FamAndContactContainer>
-          <Panel>
-            <div>
-              <FamilyDetailTitle>{household.name}</FamilyDetailTitle>
-            </div>
-            <div>
-              <FamilyDetailCard
-                id={household.id}
-                name={household.name} 
-                street={household.street}
-                city={household.city}
-                state={household.state}
-                zipCode={household.zip_code}
-                tempLow={household.temp_low}
-                tempHi={household.temp_high}
-                wifiUsername={household.wifi_password}
-                wifiPassword={household.wifi_username}
-                notes={household.notes}
-                /> 
-              <button onClick={handleClick}>Delete</button>  
-            </div>
-          </Panel>
-          <Panel>
-            <HeaderContainer>
-              <ContactTitle>Contacts</ContactTitle>
-              <Link to={`/households/${id}/contacts/new`}>
-                <AddButton />
-              </Link>    
-            </HeaderContainer>
-            <div>{contactCardJSX}</div>
-          </Panel>        
-        </FamAndContactContainer>
-      </MainContainer>
+          <PetsContainer>
+            <Panel>         
+              <HeaderContainer>
+                <PetTitle>Pets</PetTitle>
+                <Link to={`/households/${id}/pets/new`}>
+                  <AddButton />
+                </Link>                             
+              </HeaderContainer>
+              <div>
+                {petCardJSX}
+              </div>               
+            </Panel>
+          </PetsContainer>
+          <FamAndContactContainer>
+            <Panel>
+              <div>
+                <FamilyDetailTitle>Family Details</FamilyDetailTitle>
+              </div>
+              <div>
+                <FamilyDetailCard
+                  id={household.id}
+                  name={household.name} 
+                  street={household.street}
+                  city={household.city}
+                  state={household.state}
+                  zipCode={household.zip_code}
+                  tempLow={household.temp_low}
+                  tempHi={household.temp_high}
+                  wifiUsername={household.wifi_password}
+                  wifiPassword={household.wifi_username}
+                  notes={household.notes}
+                  /> 
+              </div>
+            </Panel>
+            <Panel>
+              <HeaderContainer>
+                <ContactTitle>Contacts</ContactTitle>
+                <Link to={`/households/${id}/contacts/new`}>
+                  <AddButton />
+                </Link>    
+              </HeaderContainer>
+              <div>{contactCardJSX}</div>
+            </Panel>        
+          </FamAndContactContainer>
+          <div>
+            <DeleteButton label="Delete" onClick={handleClick}></DeleteButton>
+          </div>        
+        </MainContainer>
       </TitleMainContainer>
     </Layout>
   );
