@@ -25,7 +25,7 @@ const PetCard = (props) => {
         <p>{props.feeding}</p>
         <p>{props.notes}</p>
         <div>
-          <Link to={`/households/${props.id}/pets/${props.id}/edit`}>
+          <Link to={`/households/${props.household.id}/pets/${props.petID}/edit`}>
             <EditButton />
           </Link>   
         </div>        

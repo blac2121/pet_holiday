@@ -91,12 +91,13 @@ const Household = (props) => {
   const petCardJSX = petData && petData.map((pet, index) => (
     <PetCard
       key={index}
-      id={pet.id}
+      petID={pet.id}
       name={pet.name}
       age={pet.age}
       medical={pet.medical_description}
       feeding={pet.feeding_description}
       notes={pet.notes}
+      household={household}
     />
   ));
 
