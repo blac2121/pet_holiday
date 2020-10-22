@@ -1,20 +1,12 @@
 import axios from 'axios';
 
-let apiUrl
+const baseUrl = process.env.NODE_ENV === 'production'
+  ? 'https://pet-holiday-api.herokuapp.com/'
+  : 'http://localhost:3000' 
 
-const apiUrls = {
-    production: '',
-    development: 'http://localhost:3000'
-}
-
-if (window.location.hostname === 'localhost') {
-  apiUrl = apiUrls.development
-} else {
-    apiUrl = apiUrls.production
-}
 
 const api = axios.create({
-    baseURL: apiUrl
+  baseUrl: baseUrl
 })
 
 export default api;
