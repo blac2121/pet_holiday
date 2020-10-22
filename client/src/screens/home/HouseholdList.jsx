@@ -26,6 +26,7 @@ const HouseholdTitle = styled.h3`
   display: flex;
   color: #DAAB5E;
   font-size: 36px;
+  color: #488047;
 `
 
 const HouseholdContainer = styled.div`
