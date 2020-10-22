@@ -17,7 +17,7 @@ const TitleMainContainer = styled.div`
   flex-direction: column;
   box-shadow: 0 20px 25px -5px rgba(0, 0, 0, 0.3);
   border: 1px solid #DFDFDF;
-  margin: 50px;
+  margin: 40px auto;
 `
 
 const MainContainer = styled.div`
@@ -49,12 +49,6 @@ const PetsContainer = styled.div`
 
 const FamAndContactContainer = styled.div`
   width: 30vw;
-`
-
-const HouseholdTitle = styled.h3`
-  color: #DAAB5E;
-  font-size: 36px;
-  margin: 50px 0px 0px 80px;
 `
 
 const PetTitle = styled.h4`
@@ -98,8 +92,7 @@ const Household = (props) => {
     const contactData = await getOneHousehold(id);
     setHousehold(contactData);
   }
-  
-  console.log(household);
+
   const petData = household.pets 
   const petCardJSX = petData && petData.map((pet, index) => (
     <PetCard
@@ -139,7 +132,6 @@ const Household = (props) => {
   return (
     <Layout>      
       <TitleMainContainer>
-        <HouseholdTitle>Household</HouseholdTitle>
         <MainContainer>
         <PetsContainer>
           <Panel>         
@@ -157,7 +149,7 @@ const Household = (props) => {
         <FamAndContactContainer>
           <Panel>
             <div>
-              <FamilyDetailTitle>Family Details</FamilyDetailTitle>
+              <FamilyDetailTitle>{household.name}</FamilyDetailTitle>
             </div>
             <div>
               <FamilyDetailCard
