@@ -1,29 +1,23 @@
 import React from 'react';
 import styled from 'styled-components';
+import { FontAwesomeIcon } from "@fortawesome/react-fontawesome"
+import { faTrashAlt } from "@fortawesome/free-solid-svg-icons";
 
-const Button = styled.button`
-  border: none;
-  border: 1px solid #DFDFDF;
-  color: #3A3A3A;
-  padding: 15px 32px;
-  font-size: 16px;
-  border-radius: 2px;
+const deleteTrash =
+  <FontAwesomeIcon
+    icon={faTrashAlt}
+    size="2x"
+    color="#CDCCCF"
+  />
+
+const DeleteContainer = styled.div`
   cursor: pointer;
-  font-weight: 700;
-
-
-  &:hover {
-    background: #C3C1C1;
-  }
-  @media (max-width: 425px) {
-    width: 225px;
-  }
 `
 
 const DeleteButton = (props) => {
 
   return (
-    <Button onClick={props.handleClick}>{props.label}</Button>
+    <DeleteContainer onClick={props.onClick}>{deleteTrash}</DeleteContainer>
   )
   
 }

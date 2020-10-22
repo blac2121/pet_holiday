@@ -9,20 +9,19 @@ import PetCard from './pets/PetCard';
 import FamilyDetailCard from './familydetails/FamilyDetailCard';
 import ContactCard from './contacts/ContactCard';
 import AddButton from '../../components/AddButton';
+import DeleteButton from '../../components/DeleteButton';
 
 import styled from 'styled-components';
 
-const TitleMainContainer = styled.div`
-  display: flex;
-  flex-direction: column;
-  box-shadow: 0 20px 25px -5px rgba(0, 0, 0, 0.3);
-  border: 1px solid #DFDFDF;
-  margin: 40px auto;
-`
 
 const MainContainer = styled.div`
   display: flex;
-  margin: 10px 50px 30px;
+  margin: 50px;
+`
+
+const DeleteContainer = styled.div`
+  display: flex;
+  align-items: flex-end;
 `
 
 const Panel = styled.div`
@@ -33,7 +32,7 @@ const Panel = styled.div`
   box-shadow: 0 20px 25px -5px rgba(0, 0, 0, 0.3);
   border: 1px solid #DFDFDF;
   background-color: #F9F9FA;
-  margin: 30px;
+  margin: 50px;
 `
 
 const HeaderContainer = styled.div`
@@ -48,25 +47,27 @@ const PetsContainer = styled.div`
 `
 
 const FamAndContactContainer = styled.div`
-  width: 30vw;
+  width: 40vw;
 `
 
 const PetTitle = styled.h4`
-  font-size: 28px;
+  font-size: 36px;
   color: #488047;
   margin: 25px 0px 0px 25px;
 `
 
 const ContactTitle = styled.h4`
-  font-size: 28px;
-  color: #B85240;
+  font-size: 36px;
+  color: #65379C;
   margin: 25px 0px 0px 25px;
+  padding: 20px;
 `
 
 const FamilyDetailTitle = styled.h4`
-  font-size: 28px;
+  font-size: 36px;
   color: #23309E;
   margin: 25px 0px 0px 25px;
+  padding: 20px;
 `
 
 const Household = (props) => {
@@ -131,8 +132,7 @@ const Household = (props) => {
 
   return (
     <Layout>      
-      <TitleMainContainer>
-        <MainContainer>
+      <MainContainer>
         <PetsContainer>
           <Panel>         
             <HeaderContainer>
@@ -149,7 +149,7 @@ const Household = (props) => {
         <FamAndContactContainer>
           <Panel>
             <div>
-              <FamilyDetailTitle>{household.name}</FamilyDetailTitle>
+              <FamilyDetailTitle>Family Details</FamilyDetailTitle>
             </div>
             <div>
               <FamilyDetailCard
@@ -165,7 +165,6 @@ const Household = (props) => {
                 wifiPassword={household.wifi_username}
                 notes={household.notes}
                 /> 
-              <button onClick={handleClick}>Delete</button>  
             </div>
           </Panel>
           <Panel>
@@ -178,8 +177,10 @@ const Household = (props) => {
             <div>{contactCardJSX}</div>
           </Panel>        
         </FamAndContactContainer>
+        <DeleteContainer>
+          <DeleteButton label="Delete" onClick={handleClick}></DeleteButton>
+        </DeleteContainer>        
       </MainContainer>
-      </TitleMainContainer>
     </Layout>
   );
 }
