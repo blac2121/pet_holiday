@@ -1,20 +1,30 @@
-import React, { useState } from 'react';
+import React, { useState, useEffect } from 'react';
 import { useParams } from 'react-router-dom';
+import { getOnePet } from '../../../services/pets';
+
 import Layout from '../../../components/shared/Layout';
 
- const CreatePet = (props) => {
+const EditPet = (props) => {
   const [pet, setPet] = useState({
     name: '',
     img: '',
     age: 0,
     medical_description: '',
     feeding_description: '',
-    notes: ''
+    notes: '',
+    household_id: ''
   })
    
-  const { handlePetCreate } = props;
-  const { id } = useParams();
+  const { handlePetEdit } = props;
+  const { id, pet_id } = useParams();
    
+  useEffect(() => {
+    const fetchPet = async () => {
+      const petData = await getOnePet(id, pet_id);
+      setPet(petData);
+    }
+    fetchPet();
+  }, [id, pet_id])
 
   const handleChange = (e) => {
     const target = e.target;
@@ -23,17 +33,18 @@ import Layout from '../../../components/shared/Layout';
     setPet({
       ...pet,
       [name]: value,
+      household_id: id
     });
   };
    
   const handleSubmit = (e) => {
     e.preventDefault();
-    handlePetCreate(parseInt(id), pet);
+    handlePetEdit(id, pet, pet_id);
   }
 
   return (
     <Layout>
-      <h3>Add Pet</h3>
+      <h3>Edit {pet.name}</h3>
       <form onSubmit={handleSubmit}>
         <label>Name</label>
         <input
@@ -79,4 +90,4 @@ import Layout from '../../../components/shared/Layout';
   )
 }
 
- export default CreatePet;
+ export default EditPet;

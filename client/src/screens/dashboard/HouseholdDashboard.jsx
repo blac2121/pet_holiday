@@ -1,6 +1,8 @@
 import React, { useEffect, useState } from 'react';
 import { useParams, Link } from 'react-router-dom';
 import { getOneHousehold } from '../../services/households';
+import { deletePet } from '../../services/pets';
+import { deleteContact } from '../../services/contacts';
 
 import Layout from '../../components/shared/Layout';
 import PetCard from './pets/PetCard';
@@ -85,17 +87,31 @@ const Household = (props) => {
     fetchHousehold();
   }, [id])
 
+  const handlePetDelete = async (id, pet_id) => {
+    await deletePet(id, pet_id);
+    const PetData = await getOneHousehold(id);
+    setHousehold(PetData);
+  }
+
+  const handleContactDelete = async (id, contact_id) => {
+    await deleteContact(id, contact_id);
+    const contactData = await getOneHousehold(id);
+    setHousehold(contactData);
+  }
   
+  console.log(household);
   const petData = household.pets 
   const petCardJSX = petData && petData.map((pet, index) => (
     <PetCard
       key={index}
-      id={pet.id}
+      petID={pet.id}
       name={pet.name}
       age={pet.age}
       medical={pet.medical_description}
       feeding={pet.feeding_description}
       notes={pet.notes}
+      household={household}
+      handlePetDelete={handlePetDelete}
     />
   ));
 
@@ -103,19 +119,21 @@ const Household = (props) => {
   const contactCardJSX = contactData && contactData.map((contact, index) => (
     <ContactCard
       key={index}
-      id={contact.id}
+      contactID={contact.id}
       name={contact.name} 
       relationship={contact.relationship} 
       phoneNum={contact.phone_num} 
       notes={contact.notes} 
+      household={household}
+      handleContactDelete={handleContactDelete}
     />
   ));
 
-  const { handleDelete } = props;
+  const { handleHouseholdDelete } = props;
 
   const handleClick = (e) => {
     e.preventDefault();
-    handleDelete(id);
+    handleHouseholdDelete(id);
   }
 
   return (
@@ -161,7 +179,7 @@ const Household = (props) => {
           <Panel>
             <HeaderContainer>
               <ContactTitle>Contacts</ContactTitle>
-              <Link to="/contacts/new">
+              <Link to={`/households/${id}/contacts/new`}>
                 <AddButton />
               </Link>    
             </HeaderContainer>

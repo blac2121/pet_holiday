@@ -1,4 +1,5 @@
 class PetsController < ApplicationController
+  before_action :set_pet, only: [:show, :update, :destroy]
 
   def index
     @household = Household.find(params[:household_id]) 
@@ -15,7 +16,6 @@ class PetsController < ApplicationController
     @pet = Pet.new(pet_params)
 
     if @pet.save
-      #is this the right contact or os the the contact with ID
       render json: @pet, status: :created, location: @household
     else
       render json: @pet.errors, status: :unprocessable_entity
@@ -36,11 +36,11 @@ class PetsController < ApplicationController
 
   private
   def set_pet
-    @pet = Pet.find(params[:id])
+    @pet = Pet.find(params[:id].to_i)
   end
 
   def pet_params
-    params.require(:pet).permit(:name, :img, :age, :medical_description, :feeding_description, :notes, :household_id  )
+    params.require(:pet).permit(:name, :img, :age, :medical_description, :feeding_description, :notes, :household_id )
   end
 
 end

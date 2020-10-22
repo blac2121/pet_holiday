@@ -1,17 +1,27 @@
 import React from 'react';
+import { Link } from 'react-router-dom';
+import EditButton from '../../../components/EditButton';
 import styled from 'styled-components';
 
 const PetContainer = styled.div`
-  // border: 3px solid #488047;
   border: 3px solid #DFDFDF;
   border-radius: 3px;
   margin: 40px;
   padding: 15px 25px;
-  // box-shadow: 0 20px 25px -5px rgba(72, 128, 71, 0.4);
   box-shadow: 0 20px 25px -5px rgba(0, 0, 0, 0.3);
 `
 
 const PetCard = (props) => {  
+
+  const { handlePetDelete } = props;
+  const id = props.household.id
+  const pet_id = props.petID
+
+  const handleClick = (e) => {
+    e.preventDefault();
+    handlePetDelete(id, pet_id);
+  }
+  
   return (   
     <>       
       <PetContainer>
@@ -20,7 +30,13 @@ const PetCard = (props) => {
         <p>{props.medical}</p>
         <p>{props.feeding}</p>
         <p>{props.notes}</p>
-      </PetContainer>     
+        <div>
+          <Link to={`/households/${props.household.id}/pets/${props.petID}/edit`}>
+            <EditButton />
+          </Link>   
+          <button onClick={handleClick}>Delete</button> 
+        </div>        
+      </PetContainer> 
     </>  
   );
 }
