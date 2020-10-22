@@ -59,7 +59,7 @@ const PetTitle = styled.h4`
 
 const ContactTitle = styled.h4`
   font-size: 28px;
-  color: #B85240;
+  color: #4B138F;
   margin: 25px 0px 0px 25px;
 `
 
