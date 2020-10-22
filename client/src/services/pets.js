@@ -19,4 +19,3 @@ export const deletePet = async (id, pet_id) => {
   const resp = await api.delete(`/households/${id}/pets/${pet_id}`);
   return resp;
 }
-

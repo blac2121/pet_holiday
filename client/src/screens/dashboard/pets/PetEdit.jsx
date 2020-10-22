@@ -24,7 +24,7 @@ const EditPet = (props) => {
     setPet(petData);
   }
   fetchPet();
-  }, [pet_id])
+  }, [id, pet_id])
 
   const handleChange = (e) => {
     const target = e.target;

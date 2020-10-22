@@ -2,16 +2,19 @@ import React, { useState, useEffect } from 'react';
 import { Route, Switch, useHistory } from 'react-router-dom';
 
 import { getAllHouseholds, postHousehold, putHousehold, deleteHousehold } from '../services/households';
-import { postPet, putPet, deletePet } from '../services/pets';
+import { postPet, putPet } from '../services/pets';
+import { postContact, putContact } from '../services/contacts';
 
 import HouseholdList from '../screens/home/HouseholdList';
 import Household from '../screens/dashboard/HouseholdDashboard';
 import HouseholdCreate from '../screens/home/HouseholdCreate';
 import HouseholdEdit from '../screens/home/HouseholdEdit';
+
 import PetCreate from '../screens/dashboard/pets/PetCreate';
 import PetEdit from '../screens/dashboard/pets/PetEdit';
-// import FoodEdit from '../screens/FoodEdit';
-// import FoodDetail from '../screens/FoodDetail';
+
+import ContactCreate from '../screens/dashboard/contacts/ContactCreate';
+
 
 const MainContainer = () => {
   const [households, setHouseholds] = useState([]);
@@ -42,7 +45,7 @@ const MainContainer = () => {
   }
 
   const handleHouseholdDelete = async (id) => {
-    const removeHousehold = await deleteHousehold(id);
+    await deleteHousehold(id);
     const HouseholdsData = await getAllHouseholds();
     setHouseholds(HouseholdsData);
     history.push('/households')
@@ -62,6 +65,20 @@ const MainContainer = () => {
     history.push(`/households/${id}`)
   }
 
+  const handleContactCreate = async (id, contactData) => {
+    const newContact = await postContact(parseInt(id), contactData);
+    setContacts(prevState => ([...prevState, newContact]));
+    history.push(`/households/${id}`)
+  }
+
+  const handleContactEdit = async (id, contactData, contact_id) => {
+    const updateContact = await putContact(id, contactData, contact_id);
+    setContacts(prevState => prevState.map(contact => {
+      return contact.id === Number(contact_id) ? updateContact : contact
+    }))
+    history.push(`/households/${id}`)
+  }
+
   return (
     <Switch>
       <Route path='/households/new'>
@@ -75,7 +92,10 @@ const MainContainer = () => {
       </Route>  
       <Route path='/households/:id/pets/:pet_id/edit'>
         <PetEdit handlePetEdit={handlePetEdit} households={households} />
-      </Route>      
+      </Route>     
+      <Route path='/households/:id/contacts/new'>
+        <ContactCreate handleContactCreate={handleContactCreate} />         
+      </Route>  
       <Route path='/households/:id'>
         <Household households={households} handleHouseholdDelete={handleHouseholdDelete} />
       </Route>      

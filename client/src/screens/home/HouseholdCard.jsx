@@ -1,8 +1,9 @@
 import React from 'react';
 import { Link } from 'react-router-dom';
 
+import { deleteHousehold } from '../../services/households';
 import EditButton from '../../components/EditButton';
-import DeleteButton from '../../components/DeleteButton';
+
 
 import styled from 'styled-components';
 
@@ -20,6 +21,13 @@ const HouseholdTitle = styled.h4`
 
 const HouseholdCard = (props) => { 
 
+  // const id = props.id
+
+  // const handleHouseholdDelete = async (id) => {
+  //   await deleteHousehold(id);
+  //   // const HouseholdsData = await getAllHouseholds();
+  //   // setHouseholds(HouseholdsData);
+  // }
 
   return (  
     <HouseholdContainer>   
@@ -32,7 +40,8 @@ const HouseholdCard = (props) => {
       <div>
         <Link to={`/households/${props.id}/edit`}>
           <EditButton />
-        </Link>   
+        </Link> 
+        {/* <button onClick={handleHouseholdDelete}>Delete</button>  */}
       </div>      
     </HouseholdContainer>    
   );

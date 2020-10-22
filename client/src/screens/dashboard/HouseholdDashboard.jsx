@@ -1,5 +1,5 @@
 import React, { useEffect, useState } from 'react';
-import { useParams, Link, useHistory } from 'react-router-dom';
+import { useParams, Link } from 'react-router-dom';
 import { getOneHousehold } from '../../services/households';
 import { deletePet } from '../../services/pets';
 
@@ -87,7 +87,7 @@ const Household = (props) => {
   }, [id])
 
   const handlePetDelete = async (id, pet_id) => {
-    const removePet = await deletePet(id, pet_id);
+    await deletePet(id, pet_id);
     const PetData = await getOneHousehold(id);
     setHousehold(PetData);
   }
