@@ -1,8 +1,12 @@
-import React, { useState } from 'react';
+import React, { useState, useEffect } from 'react';
 import { useParams } from 'react-router-dom';
+import { getOneHousehold } from '../../../services/households';
+
 import Layout from '../../../components/shared/Layout';
 
- const CreatePet = (props) => {
+
+const EditPet = (props) => {
+  const [household, setHousehold] = useState([]);
   const [pet, setPet] = useState({
     name: '',
     img: '',
@@ -13,10 +17,29 @@ import Layout from '../../../components/shared/Layout';
     household_id: ''
   })
    
-  const { handlePetCreate } = props;
+  const { handlePetEdit, households } = props;
   const { id } = useParams();
    
+  useEffect(() => {
+  const fetchHousehold = async () => {
+    const householdData = await getOneHousehold(id);
+    setHousehold(householdData);
+  }
+  fetchHousehold();
+  }, [id])
 
+  console.log(household); 
+  
+  // useEffect(() => {
+  //   const prefillFormData = () => {
+  //     const { name, img, age, medical_description, feeding_description, notes, household_id } = household.pets.find(pet => pet.id === Number(id));
+  //     setPet({ name, img, age, medical_description, feeding_description, notes, household_id });
+  //   }
+  //   if (household.pets.length) {
+  //     prefillFormData()
+  //   }
+  // }, [household, id])
+   
   const handleChange = (e) => {
     const target = e.target;
     const { name } = target;
@@ -30,7 +53,7 @@ import Layout from '../../../components/shared/Layout';
    
   const handleSubmit = (e) => {
     e.preventDefault();
-    handlePetCreate(parseInt(id), pet);
+    handlePetEdit(parseInt(id), pet);
   }
 
   return (
@@ -81,4 +104,4 @@ import Layout from '../../../components/shared/Layout';
   )
 }
 
- export default CreatePet;
+ export default EditPet;

@@ -15,7 +15,7 @@ const Title = styled.h1`
 const Nav = () => {  
   return (
     <MainContainer>
-      <Link to='/'>
+      <Link to='/households'>
         <Title>Pet Holiday</Title>
       </Link>      
     </MainContainer>

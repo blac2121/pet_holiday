@@ -55,8 +55,10 @@ const MainContainer = () => {
   }
 
   const handlePetEdit = async (id, petData) => {
-    const newPet = await postPet(parseInt(id), petData);
-    setPets(prevState => ([...prevState, newPet]));
+    const updatedHousehold = await putPet(id, petData);
+    setHouseholds(prevState => prevState.map(household => {
+      return household.id === Number(id) ? updatedHousehold : household
+    }))
     history.push(`/households/${id}`)
   }
 
@@ -69,19 +71,20 @@ const MainContainer = () => {
       </Route>  
       <Route path='/households/:id/edit'>
         <HouseholdEdit handleHouseholdEdit={handleHouseholdEdit} households={households} />         
-      </Route>      
-      <Route path='/households/:id/pets/new'>
+      </Route>  
+      {/* <Route path='/households/:id/pets/new'>
         <PetCreate handlePetCreate={handlePetCreate} />         
-      </Route>      
+      </Route>  
+      <Route path='/households/:id/pets/:pet_id/edit'>
+        <PetEdit handlePetEdit={handlePetEdit} households={households} />
+      </Route>       */}
       <Route path='/households/:id'>
         <Household households={households} handleDelete={handleDelete} />
-      </Route>
-      <Route path='/'>
+      </Route>      
+      <Route exact path='/households'>
         <HouseholdList households={households} />
       </Route>      
-      {/* <Route path='/households/:id/pets/:id/edit'>
-        <PetEdit handlePetEdit={handlePetEdit} households={households} />
-      </Route> */}
+
       {/* <Route path='/foods'>
         <Foods
           foods={foods}
