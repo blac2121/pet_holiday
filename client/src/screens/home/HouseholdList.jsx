@@ -7,19 +7,30 @@ import AddButton from '../../components/AddButton';
 
 import styled from 'styled-components';
 
+
 const MainContainer = styled.div`
   display: flex;
   flex-direction: column;
+  align-items: center;
   box-shadow: 0 20px 25px -5px rgba(0, 0, 0, 0.3);
   border: 1px solid #DFDFDF;
   margin: 40px auto;
+  background-color: #F0F0F0;
+  width: 75vw;
 `
 
 const HeaderContainer = styled.div`
   display: flex;
   align-items: center;
   justify-content: space-between;
-  margin: 0 30px;
+  width: 62vw;
+  margin 60px 0 30px;
+
+  @media (max-width: 480px) {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+  }
 `
 
 const HouseholdTitle = styled.h3`
@@ -27,11 +38,18 @@ const HouseholdTitle = styled.h3`
   color: #DAAB5E;
   font-size: 36px;
   color: #488047;
+  padding: 0;
+  margin: 0;
+
+  @media (max-width: 480px) {
+    margin: 30px;
+  }
 `
 
 const HouseholdContainer = styled.div`
   display: flex;
   flex-direction: column;
+  align-items: center;
 `
 
 const HouseholdList = (props) => {

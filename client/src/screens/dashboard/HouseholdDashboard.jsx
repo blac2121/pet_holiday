@@ -12,11 +12,35 @@ import AddButton from '../../components/AddButton';
 import DeleteButton from '../../components/DeleteButton';
 
 import styled from 'styled-components';
+import { FontAwesomeIcon } from "@fortawesome/react-fontawesome"
+import { faDog, faUser } from "@fortawesome/free-solid-svg-icons";
 
+const PetAvatar =
+  <FontAwesomeIcon
+    icon={faDog}
+    size="4x"
+    color="#488047"
+  />
+
+const ContactAvatar =
+  <FontAwesomeIcon
+    icon={faUser}
+    size="4x"
+    color="#65379C"
+  />
 
 const MainContainer = styled.div`
   display: flex;
   margin: 50px;
+    
+  @media (max-width: 768px) {
+    flex-direction: column;
+  }
+
+  @media (max-width: 320px) {
+    width: 275px;
+    margin: 20px auto;
+  }
 `
 
 const DeleteContainer = styled.div`
@@ -31,8 +55,17 @@ const Panel = styled.div`
   background-color: #F9F9FA;
   box-shadow: 0 20px 25px -5px rgba(0, 0, 0, 0.3);
   border: 1px solid #DFDFDF;
-  background-color: #F9F9FA;
+  background-color: #F0F0F0;
   margin: 50px;
+
+  @media (max-width: 768px) {
+    margin: 50px auto;
+  }
+
+  @media (max-width: 320px) {
+    width: 275px;
+    margin: 20px auto;
+  }
 `
 
 const HeaderContainer = styled.div`
@@ -40,14 +73,36 @@ const HeaderContainer = styled.div`
   justify-content: space-between;
   align-items: baseline;
   margin: 10px 30px 0px;
+
+  @media (max-width: 480px) {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+  }
 `
 
 const PetsContainer = styled.div`
   width: 50vw;
+
+  @media (max-width: 768px) {
+    width: 80vw;
+  }
+`
+
+const NoResultsContainer = styled.div`
+  text-align: center;
+  border: 1px solid #DFDFDF;
+  box-shadow: 0 20px 25px -5px rgba(0, 0, 0, 0.3);
+  margin: 50px;
+  padding: 50px 0px;
 `
 
 const FamAndContactContainer = styled.div`
   width: 40vw;
+
+  @media (max-width: 768px) {
+    width: 80vw;
+  }
 `
 
 const PetTitle = styled.h4`
@@ -82,6 +137,8 @@ const Household = (props) => {
     fetchHousehold();
   }, [id])
 
+  console.log(household)
+
   const handlePetDelete = async (id, pet_id) => {
     await deletePet(id, pet_id);
     const PetData = await getOneHousehold(id);
@@ -108,6 +165,8 @@ const Household = (props) => {
       handlePetDelete={handlePetDelete}
     />
   ));
+
+  console.log(petCardJSX)
 
   const contactData = household.contacts 
   const contactCardJSX = contactData && contactData.map((contact, index) => (
@@ -142,7 +201,13 @@ const Household = (props) => {
               </Link>                             
             </HeaderContainer>
             <div>
-              {petCardJSX}
+              {petCardJSX && petCardJSX.length === 0
+                ? <NoResultsContainer>
+                    <i>{PetAvatar}</i><h3>No pets!</h3>
+                    <h3>Select add to add pets</h3>
+                  </NoResultsContainer>
+                : petCardJSX
+              }  
             </div>               
           </Panel>
         </PetsContainer>
@@ -174,7 +239,15 @@ const Household = (props) => {
                 <AddButton />
               </Link>    
             </HeaderContainer>
-            <div>{contactCardJSX}</div>
+            <div>
+              {contactCardJSX && contactCardJSX.length === 0
+                ? <NoResultsContainer>
+                    <i>{ContactAvatar}</i><h3>No contacts!</h3>
+                    <h3>Select add to add contacts</h3>
+                  </NoResultsContainer>
+                : contactCardJSX
+              }  
+            </div> 
           </Panel>        
         </FamAndContactContainer>
         <DeleteContainer>

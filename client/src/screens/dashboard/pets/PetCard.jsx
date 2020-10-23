@@ -4,6 +4,16 @@ import EditButton from '../../../components/EditButton';
 import DeleteButton from '../../../components/DeleteButton';
 import '../dashboard.css';
 import styled from 'styled-components';
+import { FontAwesomeIcon } from "@fortawesome/react-fontawesome"
+import { faDog } from "@fortawesome/free-solid-svg-icons";
+
+const PetAvatar =
+  <FontAwesomeIcon
+    icon={faDog}
+    size="4x"
+    color="#488047"
+  />
+
 
 const PetContainer = styled.div`
   display: flex;
@@ -17,7 +27,13 @@ const PetContainer = styled.div`
 
 const Grid = styled.div`
   display: grid;
-  grid-template-columns: 40% 60%;
+  grid-template-columns: 100px 60%;
+
+  @media (max-width: 480px) {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+  }
 `
 
 const PetCard = (props) => {  
@@ -35,20 +51,43 @@ const PetCard = (props) => {
     <>       
       <PetContainer>
         <div className="header-container">
-          <h3 className="card-title">{props.name}</h3>
+          <div className="heading">
+            <i>{PetAvatar}</i>
+            <h3 className="card-title">{props.name}</h3>            
+          </div>
           <Link to={`/households/${props.household.id}/pets/${props.petID}/edit`}>
             <EditButton />
           </Link>  
         </div>        
-        <Grid>         
-          <p className="card-labels">Age</p>
-          <p className="card-text pet-font">{props.age}</p>
-          <p className="card-labels">Medical</p>
-          <p className="card-text pet-font">{props.medical}</p>
-          <p className="card-labels">Feeding</p>
-          <p className="card-text pet-font">{props.feeding}</p>
-          <p className="card-labels">Notes</p>
-          <p className="card-text pet-font">{props.notes}</p>          
+        <Grid> 
+          {props.age  === null 
+            ? null
+            : <>
+                <p className="card-labels">Age</p>
+                <p className="card-text pet-font">{props.age}</p>
+              </>            
+          }
+          {props.medical  === null 
+          ? null
+          : <>
+              <p className="card-labels">Medical</p>
+              <p className="card-text pet-font">{props.medical}</p>
+            </>            
+          } 
+          {props.feeding  === null 
+          ? null
+          : <>
+              <p className="card-labels">Feeding</p>
+              <p className="card-text pet-font">{props.feeding}</p>
+            </>            
+          } 
+          {props.notes  === null 
+          ? null
+          : <>
+              <p className="card-labels">Notes</p>
+              <p className="card-text pet-font">{props.notes}</p>   
+            </>            
+          }                
         </Grid>
         <DeleteButton onClick={handleClick}></DeleteButton>      
       </PetContainer> 

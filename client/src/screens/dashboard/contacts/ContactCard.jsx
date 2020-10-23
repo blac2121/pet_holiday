@@ -4,9 +4,18 @@ import EditButton from '../../../components/EditButton';
 import DeleteButton from '../../../components/DeleteButton';
 import '../dashboard.css';
 import styled from 'styled-components';
+import { FontAwesomeIcon } from "@fortawesome/react-fontawesome"
+import { faUser } from "@fortawesome/free-solid-svg-icons";
+
+const ContactAvatar =
+  <FontAwesomeIcon
+    icon={faUser}
+    size="4x"
+    color="#65379C"
+  />
 
 const ContactContainer = styled.div`
-  border: 2px solid #65379C;;
+  border: 2px solid #65379C;
   border-radius: 5px;
   margin: 50px;
   padding: 15px 25px;
@@ -15,7 +24,13 @@ const ContactContainer = styled.div`
 
 const Grid = styled.div`
   display: grid;
-  grid-template-columns: 40% 60%;
+  grid-template-columns: 175px 60%;
+
+  @media (max-width: 480px) {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+  }
 `
 
 const ContactCard = (props) => {  
@@ -32,18 +47,36 @@ const ContactCard = (props) => {
   return (
     <ContactContainer>
       <div className="header-container">
-        <h3 className="card-title">{props.name}</h3>
+        <div className="heading">
+          <i>{ContactAvatar}</i>
+          <h3 className="card-title">{props.name}</h3> 
+        </div>       
         <Link to={`/households/${props.household.id}/contacts/${props.contactID}/edit`}>
           <EditButton />
         </Link>           
       </div>      
       <Grid>
-        <p className="card-labels">Relationship</p>
-        <p className="card-text contact-font">{props.relationship}</p>
-        <p className="card-labels">Phone Number</p>
-        <p className="card-text contact-font">{props.phoneNum}</p>
-        <p className="card-labels">Notes</p>
-        <p className="card-text contact-font">{props.notes}</p>       
+        {props.relationship  === null 
+          ? null
+          : <>
+              <p className="card-labels">Relationship</p>
+              <p className="card-text contact-font">{props.relationship}</p>
+            </>            
+        } 
+        {props.phoneNum  === null
+          ? null
+          : <>
+              <p className="card-labels">Phone Number</p>
+              <p className="card-text contact-font">{props.phoneNum}</p>
+            </>            
+        } 
+        {props.notes
+          ? null
+          : <>
+              <p className="card-labels">Notes</p>
+              <p className="card-text contact-font">{props.notes}</p>     
+            </>            
+        }      
       </Grid>
       <div>
         <DeleteButton label="Delete" onClick={handleClick}></DeleteButton>
