@@ -33,7 +33,7 @@ const MainContainer = () => {
   const handleHouseholdCreate = async (householdData) => {
     const newHousehold = await postHousehold(householdData);
     setHouseholds(prevState => ([...prevState, newHousehold]));
-    history.push('/households')
+    history.push('/')
   }
 
   const handleHouseholdEdit = async (id, householdData) => {
@@ -41,14 +41,14 @@ const MainContainer = () => {
     setHouseholds(prevState => prevState.map(household => {
       return household.id === Number(id) ? updatedHousehold : household
     }))
-    history.push('/households')
+    history.push('/')
   }
 
   const handleHouseholdDelete = async (id) => {
     await deleteHousehold(id);
     const HouseholdsData = await getAllHouseholds();
     setHouseholds(HouseholdsData);
-    history.push('/households')
+    history.push('/')
   }
 
   const handlePetCreate = async (id, petData) => {
@@ -102,7 +102,7 @@ const MainContainer = () => {
       <Route path='/households/:id'>
         <Household households={households} handleHouseholdDelete={handleHouseholdDelete} />
       </Route>      
-      <Route exact path='/households'>
+      <Route exact path='/'>
         <HouseholdList households={households} />
       </Route>      
     </Switch>

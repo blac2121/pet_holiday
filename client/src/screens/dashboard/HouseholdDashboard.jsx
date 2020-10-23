@@ -82,6 +82,8 @@ const Household = (props) => {
     fetchHousehold();
   }, [id])
 
+  console.log(household)
+
   const handlePetDelete = async (id, pet_id) => {
     await deletePet(id, pet_id);
     const PetData = await getOneHousehold(id);
