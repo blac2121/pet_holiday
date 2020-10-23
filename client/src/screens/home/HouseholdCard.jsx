@@ -16,7 +16,7 @@ const HouseIcon =
 const HouseholdContainer = styled.div`
   display: flex;
   justify-content: space-between;
-  border: 1px solid #DFDFDF;
+  border: 2px solid #65379C;
   box-shadow: 0 20px 25px -5px rgba(0, 0, 0, 0.3);
   border-radius: 3px;
   width: 60vw;
