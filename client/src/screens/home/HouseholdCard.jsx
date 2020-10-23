@@ -39,12 +39,12 @@ const TextContainer = styled.div`
   display: flex;
   flex-direction: column;
   margin: 30px;
-  flex-grow: 10;
+  width: 80%;
 `
 
 const EditContainer = styled.div`
   margin: 30px;
-  flex-grow: 1;
+  width: 10%;
   text-align: right;
 `
 
@@ -56,8 +56,9 @@ const HouseholdCard = (props) => {
 
   return (  
     <HouseholdContainer>  
-      <Link to={`/households/${props.id}`}>
-        <TextContainer>
+      
+      <TextContainer>
+        <Link to={`/households/${props.id}`}> 
           <div className="heading">
             <i>{HouseIcon}</i>
             <h3 className="card-title">{props.name}</h3>
@@ -65,8 +66,8 @@ const HouseholdCard = (props) => {
           <div>
             <AddressText>{props.street} {props.city}, {props.state} {props.zipCode}</AddressText>
           </div>
-        </TextContainer>
-      </Link>
+        </Link>  
+      </TextContainer>     
       <EditContainer>
         <Link to={`/households/${props.id}/edit`}>
           <EditButton />
