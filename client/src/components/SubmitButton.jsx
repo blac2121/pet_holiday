@@ -2,17 +2,21 @@ import React from 'react';
 import styled from 'styled-components';
 
 const Button = styled.button`
-  background-color: #42C9FB; 
+  background-color: #DAAB5E; 
   border: none;
-  color: #3A3A3A;
+  color: white;
   padding: 15px 32px;
   font-size: 16px;
   border-radius: 2px;
   cursor: pointer;
   font-weight: 700;
+  width: 100px;
+  margin: 20px;
+
   &:hover {
-    background: #60ADCA;
+    transform: scale(1.1);
   }
+
   @media (max-width: 425px) {
     width: 225px;
   }

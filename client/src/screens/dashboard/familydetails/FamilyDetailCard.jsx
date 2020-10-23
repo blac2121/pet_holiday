@@ -4,6 +4,15 @@ import { Link } from 'react-router-dom';
 import EditButton from '../../../components/EditButton'
 import '../dashboard.css';
 import styled from 'styled-components';
+import { FontAwesomeIcon } from "@fortawesome/react-fontawesome"
+import { faHome } from "@fortawesome/free-solid-svg-icons";
+
+const HouseIcon =
+  <FontAwesomeIcon
+    icon={faHome}
+    size="4x"
+    color="#23309E"
+  />
 
 const FamilyDetailContainer = styled.div`
   border: 2px solid #23309E;
@@ -15,15 +24,23 @@ const FamilyDetailContainer = styled.div`
 
 const Grid = styled.div`
   display: grid;
-  grid-template-columns: 40% 60%;
-`
+  grid-template-columns: 170px 60%;
 
+  @media (max-width: 480px) {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+  }
+`
 
 const FamilyDetailCard = (props) => {  
   return (     
     <FamilyDetailContainer>
       <div className="header-container">
-        <h3 className="card-title">{props.name}</h3>
+        <div className="heading">
+          <i>{HouseIcon}</i>
+          <h3 className="card-title">{props.name}</h3>
+        </div>       
         <Link to={`/households/${props.id}/edit`}>
           <EditButton />
         </Link>  
@@ -31,14 +48,34 @@ const FamilyDetailCard = (props) => {
       <Grid>
         <p className="card-labels">Address</p>
         <p className="card-text fam-font">{props.street} {props.city}, {props.state} {props.zipCode} </p>
-        <p className="card-labels">Temperature</p>
-        <p className="card-text fam-font">{props.tempLow} - {props.tempHi}</p>
-        <p className="card-labels">Wifi Username</p>
-        <p className="card-text fam-font">{props.wifiUsername}</p>
-        <p className="card-labels">Wifi Password</p>
-        <p className="card-text fam-font">{props.wifiPassword}</p>
-        <p className="card-labels">Notes</p>
-        <p className="card-text fam-font">{props.notes}</p>        
+        {props.tempLow  === null || props.tempHi === null
+          ? null
+          : <>
+              <p className="card-labels">Temperature</p>
+              <p className="card-text fam-font">{props.tempLow} - {props.tempHi}</p>
+            </>            
+        }        
+        {props.wifiUsername  === null 
+          ? null
+          : <>
+              <p className="card-labels">Wifi Username</p>
+              <p className="card-text fam-font">{props.wifiUsername}</p>
+            </>            
+        }
+        {props.wifiUsername  === null 
+          ? null
+          : <>
+              <p className="card-labels">Wifi Password</p>
+              <p className="card-text fam-font">{props.wifiPassword}</p>
+            </>            
+        }
+        {props.notes  === null 
+          ? null
+          : <>
+              <p className="card-labels">Notes</p>
+              <p className="card-text fam-font">{props.notes}</p>
+            </>            
+        }       
       </Grid>
     </FamilyDetailContainer>      
   );
