@@ -53,15 +53,35 @@ const PetCard = (props) => {
             <EditButton />
           </Link>  
         </div>        
-        <Grid>         
-          <p className="card-labels">Age</p>
-          <p className="card-text pet-font">{props.age}</p>
-          <p className="card-labels">Medical</p>
-          <p className="card-text pet-font">{props.medical}</p>
-          <p className="card-labels">Feeding</p>
-          <p className="card-text pet-font">{props.feeding}</p>
-          <p className="card-labels">Notes</p>
-          <p className="card-text pet-font">{props.notes}</p>          
+        <Grid> 
+          {props.age  === null 
+            ? null
+            : <>
+                <p className="card-labels">Age</p>
+                <p className="card-text pet-font">{props.age}</p>
+              </>            
+          }
+          {props.medical  === null 
+          ? null
+          : <>
+              <p className="card-labels">Medical</p>
+              <p className="card-text pet-font">{props.medical}</p>
+            </>            
+          } 
+          {props.feeding  === null 
+          ? null
+          : <>
+              <p className="card-labels">Feeding</p>
+              <p className="card-text pet-font">{props.feeding}</p>
+            </>            
+          } 
+          {props.notes  === null 
+          ? null
+          : <>
+              <p className="card-labels">Notes</p>
+              <p className="card-text pet-font">{props.notes}</p>   
+            </>            
+          }                
         </Grid>
         <DeleteButton onClick={handleClick}></DeleteButton>      
       </PetContainer> 

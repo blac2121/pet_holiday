@@ -50,12 +50,27 @@ const ContactCard = (props) => {
         </Link>           
       </div>      
       <Grid>
-        <p className="card-labels">Relationship</p>
-        <p className="card-text contact-font">{props.relationship}</p>
-        <p className="card-labels">Phone Number</p>
-        <p className="card-text contact-font">{props.phoneNum}</p>
-        <p className="card-labels">Notes</p>
-        <p className="card-text contact-font">{props.notes}</p>       
+        {props.relationship  === null 
+          ? null
+          : <>
+              <p className="card-labels">Relationship</p>
+              <p className="card-text contact-font">{props.relationship}</p>
+            </>            
+        } 
+        {props.phoneNum  === null
+          ? null
+          : <>
+              <p className="card-labels">Phone Number</p>
+              <p className="card-text contact-font">{props.phoneNum}</p>
+            </>            
+        } 
+        {props.notes
+          ? null
+          : <>
+              <p className="card-labels">Notes</p>
+              <p className="card-text contact-font">{props.notes}</p>     
+            </>            
+        }      
       </Grid>
       <div>
         <DeleteButton label="Delete" onClick={handleClick}></DeleteButton>
