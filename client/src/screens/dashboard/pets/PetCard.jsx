@@ -28,6 +28,12 @@ const PetContainer = styled.div`
 const Grid = styled.div`
   display: grid;
   grid-template-columns: 100px 60%;
+
+  @media (max-width: 480px) {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+  }
 `
 
 const PetCard = (props) => {  

@@ -26,9 +26,17 @@ const HouseholdContainer = styled.div`
   :hover {
     transform: scale(1.01);
   }
+
+  @media (max-width: 480px) {
+    display: flex;
+    flex-direction: column-reverse;  
+    align-items: center;
+    padding-left: 0;
+  }
 `
 
 const TextContainer = styled.div`
+  display: flex;
   margin: 30px;
   flex-grow: 10;
 `

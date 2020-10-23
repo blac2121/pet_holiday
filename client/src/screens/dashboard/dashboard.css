@@ -38,3 +38,16 @@
 .fam-font {
   color: #23309E;
 }
+
+@media (max-width: 480px) {
+  .header-container {
+    display: flex;
+    flex-direction: column; 
+  }
+
+  .heading {
+    display: flex;
+    flex-direction: column;    
+  }
+
+}

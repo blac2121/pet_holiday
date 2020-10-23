@@ -25,6 +25,12 @@ const HeaderContainer = styled.div`
   justify-content: space-between;
   width: 62vw;
   margin 60px 0 30px;
+
+  @media (max-width: 480px) {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+  }
 `
 
 const HouseholdTitle = styled.h3`
@@ -34,6 +40,10 @@ const HouseholdTitle = styled.h3`
   color: #488047;
   padding: 0;
   margin: 0;
+
+  @media (max-width: 480px) {
+    margin: 30px;
+  }
 `
 
 const HouseholdContainer = styled.div`

@@ -73,6 +73,12 @@ const HeaderContainer = styled.div`
   justify-content: space-between;
   align-items: baseline;
   margin: 10px 30px 0px;
+
+  @media (max-width: 480px) {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+  }
 `
 
 const PetsContainer = styled.div`
