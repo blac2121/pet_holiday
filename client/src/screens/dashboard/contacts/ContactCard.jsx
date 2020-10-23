@@ -4,9 +4,18 @@ import EditButton from '../../../components/EditButton';
 import DeleteButton from '../../../components/DeleteButton';
 import '../dashboard.css';
 import styled from 'styled-components';
+import { FontAwesomeIcon } from "@fortawesome/react-fontawesome"
+import { faUser } from "@fortawesome/free-solid-svg-icons";
+
+const ContactAvatar =
+  <FontAwesomeIcon
+    icon={faUser}
+    size="4x"
+    color="#65379C"
+  />
 
 const ContactContainer = styled.div`
-  border: 2px solid #65379C;;
+  border: 2px solid #65379C;
   border-radius: 5px;
   margin: 50px;
   padding: 15px 25px;
@@ -32,7 +41,10 @@ const ContactCard = (props) => {
   return (
     <ContactContainer>
       <div className="header-container">
-        <h3 className="card-title">{props.name}</h3>
+        <div className="heading">
+          <i>{ContactAvatar}</i>
+          <h3 className="card-title">{props.name}</h3> 
+        </div>       
         <Link to={`/households/${props.household.id}/contacts/${props.contactID}/edit`}>
           <EditButton />
         </Link>           

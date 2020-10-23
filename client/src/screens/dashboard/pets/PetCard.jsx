@@ -4,6 +4,16 @@ import EditButton from '../../../components/EditButton';
 import DeleteButton from '../../../components/DeleteButton';
 import '../dashboard.css';
 import styled from 'styled-components';
+import { FontAwesomeIcon } from "@fortawesome/react-fontawesome"
+import { faDog } from "@fortawesome/free-solid-svg-icons";
+
+const PetAvatar =
+  <FontAwesomeIcon
+    icon={faDog}
+    size="4x"
+    color="#488047"
+  />
+
 
 const PetContainer = styled.div`
   display: flex;
@@ -35,7 +45,10 @@ const PetCard = (props) => {
     <>       
       <PetContainer>
         <div className="header-container">
-          <h3 className="card-title">{props.name}</h3>
+          <div className="heading">
+            <i>{PetAvatar}</i>
+            <h3 className="card-title">{props.name}</h3>            
+          </div>
           <Link to={`/households/${props.household.id}/pets/${props.petID}/edit`}>
             <EditButton />
           </Link>  

@@ -4,6 +4,15 @@ import { Link } from 'react-router-dom';
 import EditButton from '../../../components/EditButton'
 import '../dashboard.css';
 import styled from 'styled-components';
+import { FontAwesomeIcon } from "@fortawesome/react-fontawesome"
+import { faHome } from "@fortawesome/free-solid-svg-icons";
+
+const HouseIcon =
+  <FontAwesomeIcon
+    icon={faHome}
+    size="4x"
+    color="#23309E"
+  />
 
 const FamilyDetailContainer = styled.div`
   border: 2px solid #23309E;
@@ -23,7 +32,10 @@ const FamilyDetailCard = (props) => {
   return (     
     <FamilyDetailContainer>
       <div className="header-container">
-        <h3 className="card-title">{props.name}</h3>
+        <div className="heading">
+          <i>{HouseIcon}</i>
+          <h3 className="card-title">{props.name}</h3>
+        </div>       
         <Link to={`/households/${props.id}/edit`}>
           <EditButton />
         </Link>  
