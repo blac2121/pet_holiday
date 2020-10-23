@@ -111,6 +111,8 @@ const Household = (props) => {
     />
   ));
 
+  console.log(petCardJSX)
+
   const contactData = household.contacts 
   const contactCardJSX = contactData && contactData.map((contact, index) => (
     <ContactCard
@@ -144,7 +146,10 @@ const Household = (props) => {
               </Link>                             
             </HeaderContainer>
             <div>
-              {petCardJSX}
+              {petCardJSX && petCardJSX.length === 0
+                ? <h3>No pets here!</h3>
+                : petCardJSX
+              }  
             </div>               
           </Panel>
         </PetsContainer>
