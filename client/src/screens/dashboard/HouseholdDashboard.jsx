@@ -46,6 +46,10 @@ const PetsContainer = styled.div`
   width: 50vw;
 `
 
+const NoResultsContainer = styled.div`
+  text-align: center;
+`
+
 const FamAndContactContainer = styled.div`
   width: 40vw;
 `
@@ -145,12 +149,15 @@ const Household = (props) => {
                 <AddButton />
               </Link>                             
             </HeaderContainer>
-            <div>
+            <NoResultsContainer>
               {petCardJSX && petCardJSX.length === 0
-                ? <h3>No pets here!</h3>
+                ? <div>
+                  <h3>No pets!</h3>
+                  <h3>Select add to add pets</h3>
+                </div>
                 : petCardJSX
               }  
-            </div>               
+            </NoResultsContainer>               
           </Panel>
         </PetsContainer>
         <FamAndContactContainer>
@@ -181,7 +188,15 @@ const Household = (props) => {
                 <AddButton />
               </Link>    
             </HeaderContainer>
-            <div>{contactCardJSX}</div>
+            <NoResultsContainer>
+              {contactCardJSX && contactCardJSX.length === 0
+                ? <div>
+                    <h3>No contacts!</h3>
+                    <h3>Select add to add contacts</h3>
+                  </div>
+                : contactCardJSX
+              }  
+            </NoResultsContainer> 
           </Panel>        
         </FamAndContactContainer>
         <DeleteContainer>
