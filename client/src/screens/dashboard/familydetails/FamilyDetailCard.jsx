@@ -43,14 +43,34 @@ const FamilyDetailCard = (props) => {
       <Grid>
         <p className="card-labels">Address</p>
         <p className="card-text fam-font">{props.street} {props.city}, {props.state} {props.zipCode} </p>
-        <p className="card-labels">Temperature</p>
-        <p className="card-text fam-font">{props.tempLow} - {props.tempHi}</p>
-        <p className="card-labels">Wifi Username</p>
-        <p className="card-text fam-font">{props.wifiUsername}</p>
-        <p className="card-labels">Wifi Password</p>
-        <p className="card-text fam-font">{props.wifiPassword}</p>
-        <p className="card-labels">Notes</p>
-        <p className="card-text fam-font">{props.notes}</p>        
+        {props.tempLow  === null || props.tempHi === null
+          ? null
+          : <>
+              <p className="card-labels">Temperature</p>
+              <p className="card-text fam-font">{props.tempLow} - {props.tempHi}</p>
+            </>            
+        }        
+        {props.wifiUsername  === null 
+          ? null
+          : <>
+              <p className="card-labels">Wifi Username</p>
+              <p className="card-text fam-font">{props.wifiUsername}</p>
+            </>            
+        }
+        {props.wifiUsername  === null 
+          ? null
+          : <>
+              <p className="card-labels">Wifi Password</p>
+              <p className="card-text fam-font">{props.wifiPassword}</p>
+            </>            
+        }
+        {props.notes  === null 
+          ? null
+          : <>
+              <p className="card-labels">Notes</p>
+              <p className="card-text fam-font">{props.notes}</p>
+            </>            
+        }       
       </Grid>
     </FamilyDetailContainer>      
   );
