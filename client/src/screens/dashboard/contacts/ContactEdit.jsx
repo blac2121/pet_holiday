@@ -53,13 +53,7 @@ const EditContact = (props) => {
           required
           autoFocus
           onChange={handleChange}
-        />
-        <label>Profile Picture</label>
-        <input
-          value={contact.img || ''}
-          name='img'
-          onChange={handleChange}
-        />        
+        />       
         <label>Relationship</label>
         <input
           value={contact.relationship || ''}

@@ -61,12 +61,6 @@ const EditPet = (props) => {
           name='age'
           onChange={handleChange}
         />
-        <label>Img </label>
-        <input
-          value={pet.img || ''}
-          name='img'
-          onChange={handleChange}
-        />
         <label>Medical Notes</label>
         <input
           value={pet.medical_description || ''}
