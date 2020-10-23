@@ -24,7 +24,7 @@ const ContactContainer = styled.div`
 
 const Grid = styled.div`
   display: grid;
-  grid-template-columns: 40% 60%;
+  grid-template-columns: 175px 60%;
 `
 
 const ContactCard = (props) => {  

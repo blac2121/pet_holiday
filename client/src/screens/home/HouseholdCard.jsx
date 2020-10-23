@@ -28,6 +28,10 @@ const EditIcon = styled.div`
   margin: 30px;
 `
 
+const AddressText = styled.p`
+  font-size: 20px;
+`
+
 const HouseholdCard = (props) => { 
 
   return (  
@@ -38,8 +42,7 @@ const HouseholdCard = (props) => {
           <h3 className="card-title">{props.name}</h3>
         </div>           
         <div>
-          <p>Address</p>
-          <p>{props.street} {props.city}, {props.state} {props.zipCode} </p>  
+          <AddressText>{props.street} {props.city}, {props.state} {props.zipCode}</AddressText>  
         </div>
       </Link>
       <EditIcon>
