@@ -24,9 +24,8 @@ const FamilyDetailContainer = styled.div`
 
 const Grid = styled.div`
   display: grid;
-  grid-template-columns: 150px 60%;
+  grid-template-columns: 170px 60%;
 `
-
 
 const FamilyDetailCard = (props) => {  
   return (     

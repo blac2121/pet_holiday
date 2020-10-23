@@ -1,6 +1,7 @@
 import React, { useState } from 'react';
 import { useParams } from 'react-router-dom';
 import Layout from '../../../components/shared/Layout';
+import SubmitButton from '../../../components/SubmitButton';
 import '../../forms.css';
 
 const CreatePet = (props) => {
@@ -34,9 +35,11 @@ const CreatePet = (props) => {
   }
 
   return (
-    <Layout>
-      <div className="form-panel">
-        <h3>Add Pet</h3>
+    <Layout>      
+      <div className="form-panel pet">
+        <div className="form-heading">
+          <h3 className="form-title pet">Add Pet</h3>
+        </div>       
         <form onSubmit={handleSubmit} className="form-container">
           <label>Name</label>
           <input
@@ -69,8 +72,10 @@ const CreatePet = (props) => {
             value={pet.notes || ''}
             name='notes'
             onChange={handleChange}
-          />  
-          <button type='submit'>Submit</button>
+          />
+          <div className="form-footer">
+            <SubmitButton label="Add" onClick={handleSubmit} />
+          </div>
         </form>
       </div>  
     </Layout>

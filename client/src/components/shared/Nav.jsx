@@ -5,6 +5,7 @@ import styled from 'styled-components';
 
 const MainContainer = styled.div`
   display: flex;
+  background-color: #F0F0F0;
 `
 
 const LogoContainer = styled.div`

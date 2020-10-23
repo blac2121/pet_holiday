@@ -1,15 +1,58 @@
 .form-panel {
+  display: flex;
+  flex-direction: column;
+  width: 475px;
+  margin: 30px auto;
+  padding: 20px;
+  color: white;
   box-shadow: 0 20px 25px -5px rgba(0, 0, 0, 0.3);
 }
 
 .form-container {
   display: flex;
   flex-direction: column;
-  margin: 50px;
+  padding: 15px 25px 25px 25px;
+  width: 415px;
+}
+
+.form-heading {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding-left: 25px;
+}
+
+.form-title {
+  font-size: 36px;
+}
+
+.form-footer {
+  display: flex;
+  justify-content: flex-end;
+}
+
+.pet {
+  color: #488047;
+}
+
+.contact {
+  color: #65379C;
+}
+
+.famdetail {
+  color: #23309E;
+}
+
+label {
+  padding: 10px 0px;
+  font-size: 18px;
 }
 
 input {
-  width: 300px;
+  width: 415px;
   height: 45px;
   border-radius: 3px;
+  border: 2px solid #C5C3C7;
+  padding: 0 10px;
+  box-sizing: border-box;
 }

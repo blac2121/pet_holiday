@@ -1,9 +1,11 @@
 import React, { useState, useEffect } from 'react';
 import { useParams } from 'react-router-dom';
 import { getOneContact } from '../../../services/contacts';
+import Layout from '../../../components/shared/Layout';
+import SubmitButton from '../../../components/SubmitButton';
 import '../../forms.css';
 
-import Layout from '../../../components/shared/Layout';
+
 
 const EditContact = (props) => {
   const [contact, setContact] = useState({
@@ -26,7 +28,6 @@ const EditContact = (props) => {
     fetchContact();
   }, [id, contact_id])
 
-  console.log(contact)
   
   const handleChange = (e) => {
     const { name, value } = e.target;
@@ -44,36 +45,42 @@ const EditContact = (props) => {
 
   return (
     <Layout>
-      <h3>Edit {props.name}</h3>
-      <form onSubmit={handleSubmit} className="form-container">
-        <label>Name</label>
-        <input
-          value={contact.name || ''}
-          name='name'
-          required
-          autoFocus
-          onChange={handleChange}
-        />       
-        <label>Relationship</label>
-        <input
-          value={contact.relationship || ''}
-          name='relationship'
-          onChange={handleChange}
-        />
-        <label>Phone Number</label>
-        <input
-          value={contact.phone_num || ''}
-          name='phone_num'
-          onChange={handleChange}
-        />
-        <label>Notes</label>
-        <input
-          value={contact.notes || ''}
-          name='notes'
-          onChange={handleChange}
-        />  
-        <button type='submit'>Submit</button>
-      </form>
+      <div className="form-panel contact">
+        <div className="form-heading">
+          <h3 className="form-title contact">Edit {props.name}</h3>
+        </div> 
+        <form onSubmit={handleSubmit} className="form-container">
+          <label>Name</label>
+          <input
+            value={contact.name || ''}
+            name='name'
+            required
+            autoFocus
+            onChange={handleChange}
+          />       
+          <label>Relationship</label>
+          <input
+            value={contact.relationship || ''}
+            name='relationship'
+            onChange={handleChange}
+          />
+          <label>Phone Number</label>
+          <input
+            value={contact.phone_num || ''}
+            name='phone_num'
+            onChange={handleChange}
+          />
+          <label>Notes</label>
+          <input
+            value={contact.notes || ''}
+            name='notes'
+            onChange={handleChange}
+          />  
+          <div className="form-footer">
+            <SubmitButton label="Save" onClick={handleSubmit} />
+          </div>
+        </form>
+      </div>  
     </Layout>
   )
 }

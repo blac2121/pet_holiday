@@ -32,6 +32,15 @@ const ContactAvatar =
 const MainContainer = styled.div`
   display: flex;
   margin: 50px;
+    
+  @media (max-width: 768px) {
+    flex-direction: column;
+  }
+
+  @media (max-width: 320px) {
+    width: 275px;
+    margin: 20px auto;
+  }
 `
 
 const DeleteContainer = styled.div`
@@ -46,8 +55,17 @@ const Panel = styled.div`
   background-color: #F9F9FA;
   box-shadow: 0 20px 25px -5px rgba(0, 0, 0, 0.3);
   border: 1px solid #DFDFDF;
-  background-color: #F9F9FA;
+  background-color: #F0F0F0;
   margin: 50px;
+
+  @media (max-width: 768px) {
+    margin: 50px auto;
+  }
+
+  @media (max-width: 320px) {
+    width: 275px;
+    margin: 20px auto;
+  }
 `
 
 const HeaderContainer = styled.div`
@@ -59,6 +77,10 @@ const HeaderContainer = styled.div`
 
 const PetsContainer = styled.div`
   width: 50vw;
+
+  @media (max-width: 768px) {
+    width: 80vw;
+  }
 `
 
 const NoResultsContainer = styled.div`
@@ -71,6 +93,10 @@ const NoResultsContainer = styled.div`
 
 const FamAndContactContainer = styled.div`
   width: 40vw;
+
+  @media (max-width: 768px) {
+    width: 80vw;
+  }
 `
 
 const PetTitle = styled.h4`
