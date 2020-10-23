@@ -12,7 +12,22 @@ import AddButton from '../../components/AddButton';
 import DeleteButton from '../../components/DeleteButton';
 
 import styled from 'styled-components';
+import { FontAwesomeIcon } from "@fortawesome/react-fontawesome"
+import { faDog, faUser } from "@fortawesome/free-solid-svg-icons";
 
+const PetAvatar =
+  <FontAwesomeIcon
+    icon={faDog}
+    size="4x"
+    color="#488047"
+  />
+
+const ContactAvatar =
+  <FontAwesomeIcon
+    icon={faUser}
+    size="4x"
+    color="#65379C"
+  />
 
 const MainContainer = styled.div`
   display: flex;
@@ -48,6 +63,10 @@ const PetsContainer = styled.div`
 
 const NoResultsContainer = styled.div`
   text-align: center;
+  border: 1px solid #DFDFDF;
+  box-shadow: 0 20px 25px -5px rgba(0, 0, 0, 0.3);
+  margin: 50px;
+  padding: 50px 0px;
 `
 
 const FamAndContactContainer = styled.div`
@@ -149,15 +168,15 @@ const Household = (props) => {
                 <AddButton />
               </Link>                             
             </HeaderContainer>
-            <NoResultsContainer>
+            <div>
               {petCardJSX && petCardJSX.length === 0
-                ? <div>
-                  <h3>No pets!</h3>
-                  <h3>Select add to add pets</h3>
-                </div>
+                ? <NoResultsContainer>
+                    <i>{PetAvatar}</i><h3>No pets!</h3>
+                    <h3>Select add to add pets</h3>
+                  </NoResultsContainer>
                 : petCardJSX
               }  
-            </NoResultsContainer>               
+            </div>               
           </Panel>
         </PetsContainer>
         <FamAndContactContainer>
@@ -188,15 +207,15 @@ const Household = (props) => {
                 <AddButton />
               </Link>    
             </HeaderContainer>
-            <NoResultsContainer>
+            <div>
               {contactCardJSX && contactCardJSX.length === 0
-                ? <div>
-                    <h3>No contacts!</h3>
+                ? <NoResultsContainer>
+                    <i>{ContactAvatar}</i><h3>No contacts!</h3>
                     <h3>Select add to add contacts</h3>
-                  </div>
+                  </NoResultsContainer>
                 : contactCardJSX
               }  
-            </NoResultsContainer> 
+            </div> 
           </Panel>        
         </FamAndContactContainer>
         <DeleteContainer>
