@@ -7,6 +7,7 @@ import AddButton from '../../components/AddButton';
 
 import styled from 'styled-components';
 
+
 const MainContainer = styled.div`
   display: flex;
   flex-direction: column;
