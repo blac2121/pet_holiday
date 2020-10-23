@@ -14,7 +14,7 @@ const MainContainer = styled.div`
   align-items: center;
   box-shadow: 0 20px 25px -5px rgba(0, 0, 0, 0.3);
   border: 1px solid #DFDFDF;
-  margin: 40px auto;
+  margin: 80px auto;
   background-color: #F0F0F0;
   width: 75vw;
 `
