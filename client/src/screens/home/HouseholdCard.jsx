@@ -22,10 +22,21 @@ const HouseholdContainer = styled.div`
   width: 60vw;
   margin: 30px;
   padding-left: 25px;
+
+  :hover {
+    transform: scale(1.01);
+  }
 `
 
-const EditIcon = styled.div`
+const TextContainer = styled.div`
   margin: 30px;
+  flex-grow: 10;
+`
+
+const EditContainer = styled.div`
+  margin: 30px;
+  flex-grow: 1;
+  text-align: right;
 `
 
 const AddressText = styled.p`
@@ -35,21 +46,23 @@ const AddressText = styled.p`
 const HouseholdCard = (props) => { 
 
   return (  
-    <HouseholdContainer>   
-      <Link to={`/households/${props.id}`}>
-        <div className="heading">
-          <i>{HouseIcon}</i>
-          <h3 className="card-title">{props.name}</h3>
-        </div>           
-        <div>
-          <AddressText>{props.street} {props.city}, {props.state} {props.zipCode}</AddressText>  
-        </div>
-      </Link>
-      <EditIcon>
+    <HouseholdContainer>  
+      <TextContainer>
+        <Link to={`/households/${props.id}`}>
+          <div>
+            <div className="heading">
+              <i>{HouseIcon}</i>
+              <h3 className="card-title">{props.name}</h3>
+            </div>           
+            <div><AddressText>{props.street} {props.city}, {props.state} {props.zipCode}</AddressText></div>
+          </div>
+        </Link>
+      </TextContainer>
+      <EditContainer>
         <Link to={`/households/${props.id}/edit`}>
           <EditButton />
         </Link> 
-      </EditIcon>      
+      </EditContainer>      
     </HouseholdContainer>    
   );
 }

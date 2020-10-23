@@ -14,8 +14,9 @@ const Button = styled.button`
 
 
   &:hover {
-    background: #C3C1C1;
+    transform: scale(1.1);
   }
+  
   @media (max-width: 425px) {
     width: 225px;
   }
