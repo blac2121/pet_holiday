@@ -1,6 +1,7 @@
 import React, { useState } from 'react';
 import { useParams } from 'react-router-dom';
 import Layout from '../../../components/shared/Layout';
+import '../../forms.css';
 
 const CreatePet = (props) => {
   const [pet, setPet] = useState({
@@ -34,48 +35,50 @@ const CreatePet = (props) => {
 
   return (
     <Layout>
-      <h3>Add Pet</h3>
-      <form onSubmit={handleSubmit}>
-        <label>Name</label>
-        <input
-          value={pet.name || ''}
-          name='name'
-          required
-          autoFocus
-          onChange={handleChange}
-        />
-        <label>Age</label>
-        <input
-          value={pet.age || 0}
-          name='age'
-          onChange={handleChange}
-        />
-        <label>Img </label>
-        <input
-          value={pet.img || ''}
-          name='img'
-          onChange={handleChange}
-        />
-        <label>Medical Notes</label>
-        <input
-          value={pet.medical_description || ''}
-          name='medical_description'
-          onChange={handleChange}
-        />
-        <label>Feeding Notes</label>
-        <input
-          value={pet.feeding_description || ''}
-          name='feeding_description'
-          onChange={handleChange}
-        />
-        <label>Notes</label>
-        <input
-          value={pet.notes || ''}
-          name='notes'
-          onChange={handleChange}
-        />  
-        <button type='submit'>Submit</button>
-      </form>
+      <div className="form-panel">
+        <h3>Add Pet</h3>
+        <form onSubmit={handleSubmit} className="form-container">
+          <label>Name</label>
+          <input
+            value={pet.name || ''}
+            name='name'
+            required
+            autoFocus
+            onChange={handleChange}
+          />
+          <label>Age</label>
+          <input
+            value={pet.age || 0}
+            name='age'
+            onChange={handleChange}
+          />
+          <label>Img </label>
+          <input
+            value={pet.img || ''}
+            name='img'
+            onChange={handleChange}
+          />
+          <label>Medical Notes</label>
+          <input
+            value={pet.medical_description || ''}
+            name='medical_description'
+            onChange={handleChange}
+          />
+          <label>Feeding Notes</label>
+          <input
+            value={pet.feeding_description || ''}
+            name='feeding_description'
+            onChange={handleChange}
+          />
+          <label>Notes</label>
+          <input
+            value={pet.notes || ''}
+            name='notes'
+            onChange={handleChange}
+          />  
+          <button type='submit'>Submit</button>
+        </form>
+      </div>  
     </Layout>
   )
 }

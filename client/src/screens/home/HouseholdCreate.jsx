@@ -1,5 +1,6 @@
 import React, { useState } from 'react';
 import Layout from '../../components/shared/Layout';
+import '../forms.css';
 
  const CreateHousehold = (props) => {
   const [household, setHousehold] = useState({
@@ -33,7 +34,7 @@ import Layout from '../../components/shared/Layout';
   return (
     <Layout>
       <h3>Add Household</h3>
-      <form onSubmit={handleSubmit}>
+      <form onSubmit={handleSubmit} className="form-container">
         <label>Name</label>
         <input
           value={household.name}

@@ -1,5 +1,6 @@
 import React, { useState, useEffect } from 'react';
 import { useParams } from 'react-router-dom';
+import '../forms.css';
 
 import Layout from '../../components/shared/Layout';
 
@@ -46,7 +47,7 @@ import Layout from '../../components/shared/Layout';
   return (
     <Layout>
       <h3>Edit Household</h3>
-      <form onSubmit={handleSubmit}>
+      <form onSubmit={handleSubmit} className="form-container">
         <label>Name</label>
         <input
           value={household.name || ''}

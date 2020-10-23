@@ -1,6 +1,7 @@
 import React, { useState } from 'react';
 import { useParams } from 'react-router-dom';
 import Layout from '../../../components/shared/Layout';
+import '../../forms.css';
 
 const CreateContact = (props) => {
   const [contact, setContact] = useState({
@@ -32,7 +33,7 @@ const CreateContact = (props) => {
   return (
     <Layout>
       <h3>Add Contact</h3>
-      <form onSubmit={handleSubmit}>
+      <form onSubmit={handleSubmit} className="form-container">
         <label>Name</label>
         <input
           value={contact.name || ''}

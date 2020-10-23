@@ -1,6 +1,7 @@
 import React, { useState, useEffect } from 'react';
 import { useParams } from 'react-router-dom';
 import { getOnePet } from '../../../services/pets';
+import '../../forms.css';
 
 import Layout from '../../../components/shared/Layout';
 
@@ -45,7 +46,7 @@ const EditPet = (props) => {
   return (
     <Layout>
       <h3>Edit {pet.name}</h3>
-      <form onSubmit={handleSubmit}>
+      <form onSubmit={handleSubmit} className="form-container">
         <label>Name</label>
         <input
           value={pet.name || ''}

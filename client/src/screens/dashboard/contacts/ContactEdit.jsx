@@ -1,6 +1,7 @@
 import React, { useState, useEffect } from 'react';
 import { useParams } from 'react-router-dom';
 import { getOneContact } from '../../../services/contacts';
+import '../../forms.css';
 
 import Layout from '../../../components/shared/Layout';
 
@@ -44,7 +45,7 @@ const EditContact = (props) => {
   return (
     <Layout>
       <h3>Edit {props.name}</h3>
-      <form onSubmit={handleSubmit}>
+      <form onSubmit={handleSubmit} className="form-container">
         <label>Name</label>
         <input
           value={contact.name || ''}
