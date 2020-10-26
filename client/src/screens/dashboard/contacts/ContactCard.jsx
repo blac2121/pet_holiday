@@ -56,21 +56,21 @@ const ContactCard = (props) => {
         </Link>           
       </div>      
       <Grid>
-        {props.relationship  === null 
+        {props.relationship  === "" 
           ? null
           : <>
               <p className="card-labels">Relationship</p>
               <p className="card-text contact-font">{props.relationship}</p>
             </>            
         } 
-        {props.phoneNum  === null
+        {props.phoneNum  === ""
           ? null
           : <>
               <p className="card-labels">Phone Number</p>
               <p className="card-text contact-font">{props.phoneNum}</p>
             </>            
         } 
-        {props.notes
+        {props.notes  === ""
           ? null
           : <>
               <p className="card-labels">Notes</p>
