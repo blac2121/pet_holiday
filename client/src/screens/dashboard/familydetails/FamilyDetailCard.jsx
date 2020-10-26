@@ -48,28 +48,28 @@ const FamilyDetailCard = (props) => {
       <Grid>
         <p className="card-labels">Address</p>
         <p className="card-text fam-font">{props.street} {props.city}, {props.state} {props.zipCode} </p>
-        {props.tempLow  === null || props.tempHi === null
+        {props.tempLow  === ""  || props.tempHi === "" 
           ? null
           : <>
               <p className="card-labels">Temperature</p>
               <p className="card-text fam-font">{props.tempLow} - {props.tempHi}</p>
             </>            
         }        
-        {props.wifiUsername  === null 
+        {props.wifiUsername  === "" 
           ? null
           : <>
               <p className="card-labels">Wifi Username</p>
               <p className="card-text fam-font">{props.wifiUsername}</p>
             </>            
         }
-        {props.wifiUsername  === null 
+        {props.wifiUsername  === ""  
           ? null
           : <>
               <p className="card-labels">Wifi Password</p>
               <p className="card-text fam-font">{props.wifiPassword}</p>
             </>            
         }
-        {props.notes  === null 
+        {props.notes  === ""  
           ? null
           : <>
               <p className="card-labels">Notes</p>
