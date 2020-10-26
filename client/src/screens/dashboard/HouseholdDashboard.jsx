@@ -251,7 +251,7 @@ const Household = (props) => {
           </Panel>        
         </FamAndContactContainer>
         <DeleteContainer>
-          <DeleteButton label="Delete" onClick={handleClick}></DeleteButton>
+          <DeleteButton onClick={handleClick}></DeleteButton>
         </DeleteContainer>        
       </MainContainer>
     </Layout>

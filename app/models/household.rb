@@ -1,6 +1,6 @@
 class Household < ApplicationRecord
-  has_many :contacts
-  has_many :pets
+  has_many :contacts, :dependent => :destroy
+  has_many :pets, :dependent => :destroy
 
   validates :name, presence: true
 end
