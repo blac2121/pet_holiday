@@ -137,8 +137,6 @@ const Household = (props) => {
     fetchHousehold();
   }, [id])
 
-  console.log(household)
-
   const handlePetDelete = async (id, pet_id) => {
     await deletePet(id, pet_id);
     const PetData = await getOneHousehold(id);
@@ -166,7 +164,6 @@ const Household = (props) => {
     />
   ));
 
-  console.log(petCardJSX)
 
   const contactData = household.contacts 
   const contactCardJSX = contactData && contactData.map((contact, index) => (
@@ -251,7 +248,7 @@ const Household = (props) => {
           </Panel>        
         </FamAndContactContainer>
         <DeleteContainer>
-          <DeleteButton label="Delete" onClick={handleClick}></DeleteButton>
+          <DeleteButton onClick={handleClick}></DeleteButton>
         </DeleteContainer>        
       </MainContainer>
     </Layout>

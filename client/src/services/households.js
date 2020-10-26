@@ -24,8 +24,3 @@ export const deleteHousehold = async (id) => {
   const resp = await api.delete(`/households/${id}`);
   return resp;
 }
-
-export const addFlavor = async(foodId, flavorId) => {
-  const resp = await api.put(`/flavors/${flavorId}/households/${foodId}`);
-  return resp.data;
-}
