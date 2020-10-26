@@ -60,28 +60,28 @@ const PetCard = (props) => {
           </Link>  
         </div>        
         <Grid> 
-          {props.age  === null 
+          {props.age  === "" || props.age === 0 
             ? null
             : <>
                 <p className="card-labels">Age</p>
                 <p className="card-text pet-font">{props.age}</p>
               </>            
           }
-          {props.medical  === null 
+          {props.medical  === "" 
           ? null
           : <>
               <p className="card-labels">Medical</p>
               <p className="card-text pet-font">{props.medical}</p>
             </>            
           } 
-          {props.feeding  === null 
+          {props.feeding  === "" 
           ? null
           : <>
               <p className="card-labels">Feeding</p>
               <p className="card-text pet-font">{props.feeding}</p>
             </>            
           } 
-          {props.notes  === null 
+          {props.notes  === "" 
           ? null
           : <>
               <p className="card-labels">Notes</p>
